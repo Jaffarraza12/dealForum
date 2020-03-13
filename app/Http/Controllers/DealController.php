@@ -18,6 +18,17 @@ class DealController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    var $image_thumb ;
+    public function __construct(Request $request) {
+
+        if($request->getHttpHost() == 'localhost') { 
+            $this->image_thumb = '/dealForum/public/images.png';
+        } else {
+            $this->image_thumb = '/public/images.png';
+       
+        }
+
+    }
     public function index()
     {
         //
@@ -44,7 +55,7 @@ class DealController extends Controller
 
         }
         $companies = $companies->get();
-        $img_thumb = '/public/images.png';
+        $img_thumb =  $this->image_thumb ;
         return view('deals.create',compact('companies','img_thumb'));
     }
 
@@ -104,10 +115,11 @@ class DealController extends Controller
         $deal = Deal::where('id',$id)->first();
       
         if(!isset($deal->image) || empty($deal->image)  || $deal->image ==' '){
-            $img_thumb = '/public/images.png';    
+            $img_thumb =   $this->image_thumb ;    
         } else {
             $img_thumb = $deal->image; 
         }
+       
 
         return view('deals.edit',compact('companies','deal','img_thumb'));
     }

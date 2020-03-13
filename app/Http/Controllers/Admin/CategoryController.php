@@ -20,7 +20,17 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    var $image_thumb ;
+    public function __construct(Request $request) {
 
+        if($request->getHttpHost() == 'localhost') { 
+            $this->image_thumb = '/dealForum/public/images.png';
+        } else {
+            $this->image_thumb = '/public/images.png';
+       
+        }
+
+    }
     public function index()
     {
         //
@@ -45,7 +55,8 @@ class CategoryController extends Controller
     public function create()
     {
          $languages = Language::get();
-         return view('admin.category.create',compact('languages'));
+         $img_thumb =  $this->image_thumb ;
+         return view('admin.category.create',compact('languages','img_thumb'));
     }
 
     /**
@@ -110,11 +121,16 @@ class CategoryController extends Controller
                    $categoryDetail[$lang->code] = Category::find($category->id)->info()->where('language',$lang->code)->first();
    
           }
+          if(!isset($deal->image) || empty($deal->image)  || $deal->image ==' '){
+            $img_thumb =   $this->image_thumb ;    
+        } else {
+            $img_thumb = $category->image; 
+        }
         
          $languages = Language::get();
          
 
-         return view('admin.category.edit',compact('category','categoryDetail','languages'));
+         return view('admin.category.edit',compact('category','categoryDetail','languages','img_thumb'));
     }
 
     /**

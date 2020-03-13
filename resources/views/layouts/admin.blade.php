@@ -38,6 +38,26 @@
             max-width: 500px;
             margin: 1.75rem auto;
         }
+
+        .sidebar-nav{
+            background: #cdcdce;
+            padding:10px 25px;
+            color: #fff;
+        }
+        .nav-link{
+            color:#fff;
+            background: #0056ad;
+             margin: 0px 2px;
+        }
+        .nav-link:hover{
+            color:#fff;
+             background: #074484;
+
+        }
+        .nav-link.active{
+                background: #074484;
+        }
+
     </style>
     @yield('styles')
 </head>
@@ -233,7 +253,12 @@ $(function(){
            var elem = $(this).data('input')
             var multiple = $(this).data('multiple')
             var show = $(this).attr('id')
-            $('.filemanager').attr('src','/public/file-manager'+'?elem='+elem+'&show='+show+'&multiple='+multiple)
+            @if(request()->getHttpHost() == 'localhost')
+            var serverPath = '/dealForum/public/file-manager'
+            @else 
+            var serverPath = '/public/file-manager'
+            @endif
+            $('.filemanager').attr('src',serverPath+'?elem='+elem+'&show='+show+'&multiple='+multiple)
             $('#jr_modal').modal('show')
         });
        }) 

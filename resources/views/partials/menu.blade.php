@@ -12,7 +12,8 @@
             </li>
             @can('users_manage')
                 <li class="nav-item">
-                    <a href="{{ route('admin.category.index') }}" class="nav-link {{ request()->is('setting') ? 'active' : '' }}">
+
+                    <a href="{{ route('admin.category.index') }}" class="nav-link {{ request()->is('categories') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-fw fa-file">
 
                         </i>
@@ -45,13 +46,13 @@
                     </a>
                 </li>
                 <li class="nav-item nav-dropdown">
-                    <a class="nav-link  nav-dropdown-toggle" href="#">
+                    <a href="{{ route("admin.abilities.index") }}" class="nav-link {{ request()->is('admin/abilities') || request()->is('admin/abilities/*') ? 'active' : '' }}">
                         <i class="fa-fw fas fa-users nav-icon">
 
                         </i>
                         {{ trans('cruds.userManagement.title') }}
                     </a>
-                    <ul class="nav-dropdown-items">
+                    <ul class="nav-dropdown-items" style="display: none;">
                         <li class="nav-item" style="display: none;" >
                             <a href="{{ route("admin.abilities.index") }}" class="nav-link {{ request()->is('admin/abilities') || request()->is('admin/abilities/*') ? 'active' : '' }}">
                                 <i class="fa-fw fas fa-unlock-alt nav-icon">
@@ -107,5 +108,5 @@
         </ul>
 
     </nav>
-    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+    <button class="sidebar-minimizer brand-minimizer" type="button" style="display: none;"></button>
 </div>
