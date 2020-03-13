@@ -189,6 +189,14 @@ class CategoryController extends Controller
 
         return response()->noContent();
     }
+
+    public function api(Request $request){
+        $category = Category::join('category-detail', 'category.id', '=', 'category-detail.category_id')->where('language','en')->get();
+        return response()
+            ->json(compact('category'));
+
+
+    }
 }
 
     
