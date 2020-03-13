@@ -24,7 +24,7 @@ class DealController extends Controller
         if($request->getHttpHost() == 'localhost') { 
             $this->image_thumb = '/dealForum/public/images.png';
         } else {
-            $this->image_thumb = '/asset/Image/images.png';
+            $this->image_thumb = '/Image/images.png';
        
         }
 
@@ -119,7 +119,7 @@ class DealController extends Controller
         } else {
             $img_thumb = $deal->image; 
         }
-       
+
 
         return view('deals.edit',compact('companies','deal','img_thumb'));
     }
