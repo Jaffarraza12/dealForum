@@ -121,7 +121,7 @@ class CategoryController extends Controller
                    $categoryDetail[$lang->code] = Category::find($category->id)->info()->where('language',$lang->code)->first();
    
           }
-          if(!isset($deal->image) || empty($deal->image)  || $deal->image ==' '){
+          if(!isset($category->image) || empty($category->image)  || $category->image ==' '){
             $img_thumb =   $this->image_thumb ;    
         } else {
             $img_thumb = $category->image; 
@@ -146,7 +146,6 @@ class CategoryController extends Controller
          if (! Gate::allows('users_manage')) {
             return abort(401);
         }
-
         $category = Category::find($id);
         $category->slug =  $request->slug; 
         $category->image =  $request->image;
