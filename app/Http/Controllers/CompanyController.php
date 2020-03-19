@@ -228,10 +228,15 @@ class CompanyController extends Controller
 
     public function api(Request $request){
 
-        $companies = Companies::get();
+        $companies = Companies::where('status',0);
+        if($request->get('category') <> ''){
+            $companies = $companies->where('category_id',$request->get('category');
+
+        }
+        $companies =  $companies->get()
+
         return response()
             ->json(compact('companies'));
-
 
     }
 
