@@ -35,18 +35,16 @@
             </div>
 
 
-            <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
+           
+          <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                 <label for="slug">Image</label>
-                <input type="text" id="Image" name="image" class="form-control" value="{{ old('slug', isset($category) ? $category->image : '') }}" >
-                @if($errors->has('image'))
-                    <em class="invalid-feedback">
-                        {{ $errors->first('image') }}
-                    </em>
-                @endif
+                <a ><img  data-input="input-image"  id="thumb-image" class="img-thumbnail"  width="100" height="auto" id="img-image"  src="{{  (old('image')) ?   'https://deal-forum.com/asset'.old('image')  : 'https://deal-forum.com/asset'.$img_thumb }}" alt="" title="" data-placeholder="{{ 'Image' }}" /></a>
+                <input type="hidden" name="image" value="{{ old('image') }}" id="input-image" />
                 <p class="helper-block">
                     {{ trans('cruds.user.fields.email_helper') }}
                 </p>
             </div>
+            
 
 
             <div class="form-group {{ $errors->has('category') ? 'has-error' : '' }}">

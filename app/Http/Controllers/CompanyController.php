@@ -23,6 +23,17 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     var $image_thumb ;
+    public function __construct(Request $request) {
+
+        if($request->getHttpHost() == 'localhost') { 
+            $this->image_thumb = '/dealForum/public/images.png';
+        } else {
+            $this->image_thumb = '/Image/images.png';
+       
+        }
+
+    }
     public function index()
     {
        
@@ -55,8 +66,11 @@ class CompanyController extends Controller
          ->where('assigned_roles.role_id',2);
 
          $users = $users->get();
+         $img_thumb =  $this->image_thumb ;
+
+     
        
-        return view('company.create',compact('categories','users'));
+        return view('company.create',compact('categories','users','img_thumb'));
     }
 
     /**
@@ -126,10 +140,15 @@ class CompanyController extends Controller
 
          $users =User::join('assigned_roles', 'assigned_roles.entity_id', '=', 'users.id')
          ->where('assigned_roles.role_id',2)->get();
+          if(!isset($company->image) || empty($company->image)  || $company->image ==' '){
+            $img_thumb =   $this->image_thumb ;    
+        } else {
+            $img_thumb = $category->image; 
+        }
         
 
 
-         return view('company.edit',compact('company','categories','users'));
+         return view('company.edit',compact('company','categories','users','img_thumb'));
     }
 
     /**
@@ -204,5 +223,20 @@ class CompanyController extends Controller
         }
         Companies::whereIn('id', request('ids'))->delete();
         return response()->noContent();
+    }
+
+
+    public funtion api(Request $request){
+
+        $companies = Category::join('category-detail', 'category.id', '=', 'category-detail.category_id')->where('language','en')->get();
+        return response()
+            ->json(compact('category'));
+
+
+    }
+
+
+
+
     }
 }
