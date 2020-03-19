@@ -228,9 +228,9 @@ class CompanyController extends Controller
 
     public funtion api(Request $request){
 
-        $companies = Category::join('category-detail', 'category.id', '=', 'category-detail.category_id')->where('language','en')->get();
+        $companies = Companies::get();
         return response()
-            ->json(compact('category'));
+            ->json(compact('companies'));
 
 
     }
