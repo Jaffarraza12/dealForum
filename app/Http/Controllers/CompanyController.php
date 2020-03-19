@@ -143,7 +143,7 @@ class CompanyController extends Controller
           if(!isset($company->image) || empty($company->image)  || $company->image ==' '){
             $img_thumb =   $this->image_thumb ;    
         } else {
-            $img_thumb = $category->image; 
+            $img_thumb = $company->image; 
         }
         
 
