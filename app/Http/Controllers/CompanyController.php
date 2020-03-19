@@ -109,7 +109,7 @@ class CompanyController extends Controller
         $company->name =  $request->name; 
         $company->slug =  $request->slug; 
         $company->category_id =  $request->category; 
-        $company->image =  $company->image;
+        $company->image =  $request->image;
         $company->user =  $request->user; 
         $company->save();
        
@@ -193,7 +193,7 @@ class CompanyController extends Controller
         if ( Gate::allows('users_manage') ){
             $company->user =  $request->user; 
         }
-        $company->image =  $company->image;
+        $company->image =  $request->image;
         $company->save();
        
         return redirect()->route('companies.index');;
