@@ -233,7 +233,7 @@ class CompanyController extends Controller
             $companies = $companies->where('category_id',$request->get('category'));
 
         }
-        $companies =  $companies->get()
+        $companies =  $companies->get();
 
         return response()
             ->json(compact('companies'));
