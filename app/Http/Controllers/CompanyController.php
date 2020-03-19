@@ -230,7 +230,7 @@ class CompanyController extends Controller
 
         $companies = Companies::where('status',0);
         if($request->get('category') <> ''){
-            $companies = $companies->where('category_id',$request->get('category');
+            $companies = $companies->where('category_id',$request->get('category'));
 
         }
         $companies =  $companies->get()
