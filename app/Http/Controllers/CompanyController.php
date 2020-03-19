@@ -226,7 +226,7 @@ class CompanyController extends Controller
     }
 
 
-    public funtion api(Request $request){
+    public function api(Request $request){
 
         $companies = Companies::get();
         return response()
