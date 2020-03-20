@@ -181,7 +181,7 @@ class DealController extends Controller
 
      public function api(Request $request){
 
-        $deals = Deal() ;
+        $deals = Deal::where('id','!=',0);
         if($request->get('company') <> ''){
             $deals = $deals->where('company_id',$request->get('company'));
 
