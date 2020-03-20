@@ -196,7 +196,7 @@ class DealController extends Controller
     public function detailapi(Request $request){
          $deal = Deal::where('id','!=',0);
         if($request->get('id') <> ''){
-            $deal = $deals->where('id',$request->get('id'));
+            $deal = $deal->where('id',$request->get('id'));
 
         }
         $deal =  $deal->first();
