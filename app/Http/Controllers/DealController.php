@@ -178,4 +178,18 @@ class DealController extends Controller
         Deal::whereIn('id', request('ids'))->delete();
         return response()->noContent();
     }
+
+     public function api(Request $request){
+
+        $deals = Deal() ;
+        if($request->get('company') <> ''){
+            $deals = $deals->where('company_id',$request->get('company'));
+
+        }
+        $deals =  $deals->get();
+
+        return response()
+            ->json(compact('deals'));
+
+    }
 }
