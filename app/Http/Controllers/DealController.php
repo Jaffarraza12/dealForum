@@ -192,4 +192,20 @@ class DealController extends Controller
             ->json(compact('deals'));
 
     }
+
+    public function detailapi(Request $request){
+         $deal = Deal::where('id','!=',0);
+        if($request->get('id') <> ''){
+            $deal = $deals->where('id',$request->get('id'));
+
+        }
+        $deal =  $deal->first();
+
+        return response()
+            ->json(compact('deal'));
+    
+
+
+
+    }
 }
