@@ -11,4 +11,9 @@ Route::get('companies', 'CompanyController@api');
 Route::get('deals', 'DealController@api');
 Route::get('deal-detail', 'DealController@detailapi');
 
+
+Route::post('customer', 'CustomerController@CustomerApi');
+
+
+
  
