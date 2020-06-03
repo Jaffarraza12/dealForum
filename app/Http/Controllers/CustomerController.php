@@ -17,9 +17,6 @@ class CustomerController extends Controller
   
 
     public function CustomerApi(Request $request){
-        return response()
-            ->json($request->all());
-        
         if( Customer::where('email',$request->email)->count() > 0){
             return response()
             ->json(Customer::where('email',$request->email)-first());
