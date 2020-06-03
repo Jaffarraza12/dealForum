@@ -23,7 +23,7 @@ class CustomerController extends Controller
 
         }
 
-        $user = User::create($request->all());
+        $user = Customer::create($request->all());
         $lastInsertedId = $user->id; 
         return response()
             ->json(Customer::where('id',$lastInsertedId)-first());
