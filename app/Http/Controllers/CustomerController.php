@@ -18,12 +18,14 @@ class CustomerController extends Controller
 
     public function CustomerApi(Request $request){
 
+
+        $resp = json_decode($request->all());
         $data = array();
         $data['name'] = $request['name'];
         $data['email'] = $request['email'];
         $data['fbid'] = $request['fbid'];
         $data['goid'] = $request['goid'];
-        print_r( $request->all());        
+        print_r( $resp);        
         echo json_encode($data);
         exit;
 
