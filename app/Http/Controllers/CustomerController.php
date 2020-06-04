@@ -28,7 +28,7 @@ class CustomerController extends Controller
         
         if( Customer::where('email',$resp['email'])->count() > 0){
             return response()
-            ->json(Customer::where('email',$resp['email')->get());
+            ->json(Customer::where('email',$resp['email'])->get());
 
         }
 
