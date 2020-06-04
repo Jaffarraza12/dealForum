@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Models\Deal;
 use App\Http\Models\Companies;
+use App\Http\Models\Rating;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\DealStoreRequest;
 use Auth;
@@ -197,15 +198,31 @@ class DealController extends Controller
          $deal = Deal::where('id','!=',0);
         if($request->get('id') <> ''){
             $deal = $deal->where('id',$request->get('id'));
+            $rating = Rating::where('deal',$request->get('id'))->avg('vote');
 
         }
         $deal =  $deal->first();
+        $rating = 0;
 
         return response()
-            ->json(compact('deal'));
-    
+            ->json(compact('deal','rating'));
+
+    }
+
+    public function DoRating(Request $request){
 
 
+        $resp = json_decode($request->getContent(), true);
+        $data = array();
+        $data['customer'] = $resp['customer'];
+        $data['deal'] = $resp['deal'];
+        $data['vote'] = $resp['vote'];
+       
+        
+        $rate = Rating::create($data);
+        $lastInsertedId = $rate->id; 
+        return response()
+            ->json(Rating::where('deal',$data['deal'])->avg('vote'));
 
     }
 }

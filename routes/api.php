@@ -13,7 +13,7 @@ Route::get('deal-detail', 'DealController@detailapi');
 
 
 Route::post('customer', 'CustomerController@CustomerApi');
-
+Route::get('rating', 'DealController@DoRating');
 
 
  
