@@ -23,7 +23,7 @@ class CustomerController extends Controller
         $data['email'] = $request->email;
         $data['fbid'] = $request->fbid;
         $data['goid'] = $request->goid;
-
+        print_r( $request->all());        
         echo json_encode($data);
         exit;
 
