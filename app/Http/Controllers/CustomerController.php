@@ -20,15 +20,13 @@ class CustomerController extends Controller
 
 
         $resp = json_decode($request->getContent(), true);
-        $data = array();
-        $data['name'] = $request['name'];
-        $data['email'] = $request['email'];
-        $data['fbid'] = $request['fbid'];
-        $data['goid'] = $request['goid'];
-        print_r( $resp);        
-        echo json_encode($data);
+        $data = (object) array();
+        $data['name'] = $resp->name;
+        $data['email'] = $resp->email;
+        $data['fbid'] = $resp->fbid;
+        $data['goid'] = $resp->goid;
+        print_r($data);
         exit;
-
         if( Customer::where('email',$request->email)->count() > 0){
             return response()
             ->json(Customer::where('email',$request->email)->get());
