@@ -209,7 +209,10 @@ class DealController extends Controller
 
     }
 
-    public function DoRating(Request $request){
+     function DoRating(Request $request){
+
+        echo 1;
+        exit;
 
 
         $resp = json_decode($request->getContent(), true);
