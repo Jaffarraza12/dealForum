@@ -28,14 +28,14 @@ class CustomerController extends Controller
         
         if( Customer::where('email',$resp['email'])->count() > 0){
             return response()
-            ->json(Customer::where('email',$resp['email'])->get());
+            ->json(Customer::where('email',$resp['email'])->first());
 
         }
 
         $user = Customer::create($data);
         $lastInsertedId = $user->id; 
         return response()
-            ->json(Customer::where('id',$lastInsertedId)->get());
+            ->json(Customer::where('id',$lastInsertedId)->first());
 
     }
 }
