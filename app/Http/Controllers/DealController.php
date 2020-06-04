@@ -211,10 +211,6 @@ class DealController extends Controller
 
      function DoRating(Request $request){
 
-        echo 1;
-        exit;
-
-
         $resp = json_decode($request->getContent(), true);
         $data = array();
         $data['customer'] = $resp['customer'];
