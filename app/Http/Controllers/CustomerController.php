@@ -19,10 +19,10 @@ class CustomerController extends Controller
     public function CustomerApi(Request $request){
 
         $data = array();
-        $data['name'] = $request->name;
-        $data['email'] = $request->email;
-        $data['fbid'] = $request->fbid;
-        $data['goid'] = $request->goid;
+        $data['name'] = $request['name'];
+        $data['email'] = $request['email'];
+        $data['fbid'] = $request['fbid'];
+        $data['goid'] = $request['goid'];
         print_r( $request->all());        
         echo json_encode($data);
         exit;
