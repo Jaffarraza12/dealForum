@@ -26,7 +26,7 @@ class CustomerController extends Controller
         $data['fbid'] = $resp['fbid'];
         $data['goid'] = $resp['goid'];
         
-        if( Customer::where('email',$resp['email')->count() > 0){
+        if( Customer::where('email',$resp['email'])->count() > 0){
             return response()
             ->json(Customer::where('email',$resp['email')->get());
 
