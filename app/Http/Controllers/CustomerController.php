@@ -17,16 +17,26 @@ class CustomerController extends Controller
   
 
     public function CustomerApi(Request $request){
+
+        $data = array();
+        $data['name'] = $request->name;
+        $data['email'] = $request->email;
+        $data['fbid'] = $request->fbid;
+        $data['goid'] = $request->goid;
+
+        echo json_encode($data);
+        exit;
+
         if( Customer::where('email',$request->email)->count() > 0){
             return response()
-            ->json(Customer::where('email',$request->email)->first());
+            ->json(Customer::where('email',$request->email)->get());
 
         }
 
-        $user = Customer::create($request->all());
+        $user = Customer::create($data);
         $lastInsertedId = $user->id; 
         return response()
-            ->json(Customer::where('id',$lastInsertedId)->first());
+            ->json(Customer::where('id',$lastInsertedId)->get());
 
     }
 }
