@@ -198,7 +198,7 @@ class DealController extends Controller
          $deal = Deal::where('id','!=',0);
         if($request->get('id') <> ''){
             $deal = $deal->where('id',$request->get('id'));
-            $rating = Rating::where('deal',$request->get('id'))->avg('vote');
+            echo $rating = Rating::where('deal',$request->get('id'))->avg('vote');
 
         }
         $deal =  $deal->first();
