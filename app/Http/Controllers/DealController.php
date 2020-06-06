@@ -195,14 +195,15 @@ class DealController extends Controller
     }
 
     public function detailapi(Request $request){
-         $deal = Deal::where('id','!=',0);
+        $deal = Deal::where('id','!=',0);
+        $rating = 0;
         if($request->get('id') <> ''){
             $deal = $deal->where('id',$request->get('id'));
-            echo $rating = Rating::where('deal',$request->get('id'))->avg('vote');
+            $rating = Rating::where('deal',$request->get('id'))->avg('vote');
 
         }
         $deal =  $deal->first();
-        $rating = 0;
+       
 
         return response()
             ->json(compact('deal','rating'));
