@@ -27,15 +27,17 @@ class CustomerController extends Controller
         $data['goid'] = $resp['goid'];
         
         if( Customer::where('email',$resp['email'])->count() > 0){
+            $type = 'old';
             return response()
-            ->json(Customer::where('email',$resp['email'])->first());
+            ->json(Customer::where('email',$resp['email'])->first(),'type');
 
         }
 
         $user = Customer::create($data);
-        $lastInsertedId = $user->id; 
-        return response()
-            ->json(Customer::where('id',$lastInsertedId)->first());
+        $lastInsertedId = $user->id;
+        $type = 'new';
+         return response()
+            ->json(Customer::where('id',$lastInsertedId)->first(),'type');
 
     }
 }
