@@ -42,4 +42,12 @@ class CustomerController extends Controller
             ->json(compact('user','type'));
 
     }
-}
+     public function show($id)
+     { 
+        $customer = Customer::where('email',$resp['email'])->get();
+        return response()
+            ->json(compact('customer'));
+
+
+            //
+     }
