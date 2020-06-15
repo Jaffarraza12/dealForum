@@ -44,7 +44,7 @@ class CustomerController extends Controller
     }
      public function show($id)
      { 
-        $customer = Customer::where('email',$resp['email'])->get();
+        $customer = Customer::where('id',$id)->get();
         return response()
             ->json(compact('customer'));
 
