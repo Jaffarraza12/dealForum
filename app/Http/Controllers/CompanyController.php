@@ -233,7 +233,7 @@ class CompanyController extends Controller
         $companies = Companies::select([
             'companies.*',
             DB::raw('(SELECT count(*) from deals where company_id = companies.id) as TOTAL')
-        ])where('status',0);
+        ])->where('status',0);
         if($request->get('category') <> ''){
             $companies = $companies->where('category_id',$request->get('category'));
 
