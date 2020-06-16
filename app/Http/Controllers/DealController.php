@@ -9,6 +9,7 @@ use App\Http\Models\Rating;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\DealStoreRequest;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 
 
