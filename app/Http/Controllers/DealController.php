@@ -190,8 +190,7 @@ class DealController extends Controller
 
         }
         $deals =  $deals->get();
-        print_r($deals);
-
+       
         return response()
             ->json(compact('deals'));
 
