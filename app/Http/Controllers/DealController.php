@@ -192,11 +192,11 @@ class DealController extends Controller
 
         }
 
-        $deals =  $deal->addSelect(['AVG'=> Rating::avg('vote')->where('rating.deal','deals.id')
+        $dealer =  $deal->addSelect(['AVG'=> Rating::avg('vote')->whereColumn('rating.deal','deals.id')
             ])->get();
        
         return response()
-            ->json(compact('deals'));
+            ->json(compact('dealer'));
 
     }
 
