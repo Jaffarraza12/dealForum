@@ -184,19 +184,23 @@ class DealController extends Controller
 
      public function api(Request $request){
 
-        $deal = Deal::select('deals.*','companies.name AS company')
+        $deals = Deal::select([
+            'deals.*',
+            'companies.name AS company',
+            DB::raw('(SELECT avg(rating.vote)  from rating where deal= deals.id) as AVG')
+
+
+        ])
         ->join('companies', 'deals.company_id', '=', 'companies.id')      
         ->where('deals.id','!=',0);
         if($request->get('company') <> ''){
-            $deal = $deal->where('company_id',$request->get('company'));
+            $deals = $deals->where('company_id',$request->get('company'));
 
         }
-
-        $dealer =  $deal->addSelect(['AVG'=> Rating::avg('vote')->whereColumn('rating.deal','deals.id')
-            ])->get();
+        $deals =  $deals->get();
        
         return response()
-            ->json(compact('dealer'));
+            ->json(compact('deals'));
 
     }
 
@@ -209,7 +213,6 @@ class DealController extends Controller
 
         }
         $deal =  $deal->first();
-
        
 
         return response()
