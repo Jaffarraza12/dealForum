@@ -182,7 +182,7 @@ class DealController extends Controller
 
      public function api(Request $request){
 
-        $deals = Deal::select('deal.*,company.name "company"')
+        $deals = Deal::select('deal.*,companies.name "company"')
         ->join('companies', 'deals.company_id', '=', 'companies.id')      
         ->where('id','!=',0);
         if($request->get('company') <> ''){
