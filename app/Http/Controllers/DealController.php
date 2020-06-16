@@ -187,12 +187,10 @@ class DealController extends Controller
         $deals = Deal::select([
             'deals.*',
             'companies.name AS company',
-            DB::raw('(SELECT avg(rating.vote)  from rating where deal= deals.id) as AVG')
+            DB::raw('(SELECT avg(rating.vote)  from rating where deal = deals.id) as AVG')
 
 
-        ])
-        ->join('companies', 'deals.company_id', '=', 'companies.id')      
-        ->where('deals.id','!=',0);
+        ])->join('companies', 'deals.company_id', '=', 'companies.id') ;     
         if($request->get('company') <> ''){
             $deals = $deals->where('company_id',$request->get('company'));
 
