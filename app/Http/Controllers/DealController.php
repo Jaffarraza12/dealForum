@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 
 
+
 class DealController extends Controller
 {
     /**
@@ -183,7 +184,8 @@ class DealController extends Controller
 
      public function api(Request $request){
 
-        $deals = Deal::select('deals.*','companies.name AS company', DB::raw('select avg(rating.vote) from rating where deal= deals.id AS AVG'))
+        $deals = Deal::select('deals.*','companies.name AS company')
+        -> DB::raw('select avg(rating.vote) from rating where deal= deals.id AS AVG'))
         ->join('companies', 'deals.company_id', '=', 'companies.id')      
         ->where('deals.id','!=',0);
         if($request->get('company') <> ''){
