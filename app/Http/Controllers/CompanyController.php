@@ -9,8 +9,10 @@ use App\Http\Requests\CompaniesStoreRequest;
 use App\Http\Requests\CompaniesUpdateRequest;
 use Illuminate\Support\Facades\Gate;
 use App\User;
+use App\Http\Models\Deal;
 use Silber\Bouncer\Database\Role;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 use Auth;
 
 
@@ -228,7 +230,10 @@ class CompanyController extends Controller
 
     public function api(Request $request){
 
-        $companies = Companies::where('status',0);
+        $companies = Companies::select([
+            'companies.*',
+            DB::raw('(SELECT count(*) from deals where company_id = companies.id) as TOTAL')
+        ])where('status',0);
         if($request->get('category') <> ''){
             $companies = $companies->where('category_id',$request->get('category'));
 
