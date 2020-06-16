@@ -188,7 +188,7 @@ class DealController extends Controller
         ->join('companies', 'deals.company_id', '=', 'companies.id')      
         ->where('deals.id','!=',0);
         if($request->get('company') <> ''){
-            $deal = $deals->where('company_id',$request->get('company'));
+            $deal = $deal->where('company_id',$request->get('company'));
 
         }
 
