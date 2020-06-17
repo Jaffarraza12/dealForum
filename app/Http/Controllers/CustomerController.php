@@ -23,7 +23,6 @@ class CustomerController extends Controller
         $data = array();
         $data['name'] = $resp['name'];
         $data['email'] = $resp['email'];
-        $data['phone'] = $resp['phone'];
         $data['fbid'] = $resp['fbid'];
         $data['goid'] = $resp['goid'];
         
@@ -34,21 +33,30 @@ class CustomerController extends Controller
             ->json(compact('user','type'));
 
         }
-        if(isset($resp['method'])){
-             $user = Customer::where('id',$resp['id'])->update($data);
 
-
-        } else{
-            $user = Customer::create($data);
-            $lastInsertedId = $user->id;
-            $type = 'new';
-            $user = Customer::where('id',$lastInsertedId)->first(); 
-            
-        }
-
-       
+        $user = Customer::create($data);
+        $lastInsertedId = $user->id;
+        $type = 'new';
+        $user = Customer::where('id',$lastInsertedId)->first(); 
          return response()
             ->json(compact('user','type'));
+
+    }
+
+    public function Edit(Request $request){
+        $resp = json_decode($request->getContent(), true);
+        $data = array();
+        $data['name'] = $resp['name'];
+        $data['id'] = $resp['id'];
+        $data['phone'] = (!empty($resp['phone'])) ? $resp['phone'] : '';
+        $data['password'] = (!empty($resp['password'])) ?  md5($resp['password']) : ''; 
+
+        $user = Customer::where('id',$data['id'])->update($data);
+        $user = Customer::where('id',$data['id'])->first();
+
+        return response()
+            ->json(compact('user'));
+        
 
     }
      public function show($id)

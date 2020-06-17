@@ -14,6 +14,7 @@ Route::get('deal-detail', 'DealController@detailapi');
 
 
 Route::post('customer', 'CustomerController@CustomerApi');
+Route::post('customerEdit', 'CustomerController@Edit');
 Route::post('rating', 'DealController@DoRating');
 
 
