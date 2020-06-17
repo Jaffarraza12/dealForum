@@ -23,6 +23,7 @@ class CustomerController extends Controller
         $data = array();
         $data['name'] = $resp['name'];
         $data['email'] = $resp['email'];
+        $data['phone'] = $resp['phone'];
         $data['fbid'] = $resp['fbid'];
         $data['goid'] = $resp['goid'];
         
@@ -33,11 +34,19 @@ class CustomerController extends Controller
             ->json(compact('user','type'));
 
         }
+        if(isset($resp['method'])){
+             $user = Customer::where('id',$resp['id'])->update($data);
 
-        $user = Customer::create($data);
-        $lastInsertedId = $user->id;
-        $type = 'new';
-        $user = Customer::where('id',$lastInsertedId)->first(); 
+
+        } else{
+            $user = Customer::create($data);
+            $lastInsertedId = $user->id;
+            $type = 'new';
+            $user = Customer::where('id',$lastInsertedId)->first(); 
+            
+        }
+
+       
          return response()
             ->json(compact('user','type'));
 
