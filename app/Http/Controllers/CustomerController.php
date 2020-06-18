@@ -22,21 +22,21 @@ class CustomerController extends Controller
         $resp = json_decode($request->getContent(), true);
         $data = array();
         $data['name'] = $resp['name'];
-        $data['email'] = $resp['email'];
+        $data['email'] = ($resp['email'] == 'null') ? this->makeTempEmail() : '';
         $data['fbid'] = $resp['fbid'];
         $data['goid'] = $resp['goid'];
-          print_r($data);
+
         if( !empty($resp['email']) && Customer::where('email',$resp['email'])->count() > 0){
             $type = 'old';
-            $user = Customer::where('email',$resp['email'])->first();
+            $user = Customer::where('email',$data['email'])->first();
             return response()
             ->json(compact('user','type'));
 
         }
 
-         if( $data['fbid'] != 0 && Customer::where('fbid',$resp['fbid'])->count() > 0){
+         if( $data['fbid'] != 0 && Customer::where('fbid',$data['fbid'])->count() > 0){
              $type = 'old';
-            $user = Customer::where('fbid',$resp['fbid'])->first();
+            $user = Customer::where('fbid',$data['fbid'])->first();
             return response()
             ->json(compact('user','type'));
          
@@ -44,7 +44,7 @@ class CustomerController extends Controller
 
          if( $data['goid'] != 0 && Customer::where('goid',$resp['goid'])->count() > 0){
             $type = 'old';
-            $user = Customer::where('goid',$resp['goid'])->first();
+            $user = Customer::where('goid',$data['goid'])->first();
             return response()
             ->json(compact('user','type'));
          
@@ -85,5 +85,15 @@ class CustomerController extends Controller
 
 
             //
+     }
+
+     private function makeTempEmail(){
+        $string = substr(md5(time()), 0, 7);
+        $email = $string.'@deal-forum.com';
+        return $email;
+
+
+
+
      }
  }
