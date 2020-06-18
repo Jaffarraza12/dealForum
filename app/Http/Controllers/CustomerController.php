@@ -20,13 +20,12 @@ class CustomerController extends Controller
 
 
         $resp = json_decode($request->getContent(), true);
-        echo $this->makeTempEmail();
         $data = array();
         $data['name'] = $resp['name'];
         $data['email'] = ($resp['email'] == 'null') ? $this->makeTempEmail() : '';
         $data['fbid'] = $resp['fbid'];
         $data['goid'] = $resp['goid'];
-        print_r($data);
+
 
         if( !empty($resp['email']) && Customer::where('email',$resp['email'])->count() > 0){
             $type = 'old';
