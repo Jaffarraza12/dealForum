@@ -26,7 +26,7 @@ class CustomerController extends Controller
         $data['fbid'] = $resp['fbid'];
         $data['goid'] = $resp['goid'];
         
-        if( !empty($resp['email'])) && Customer::where('email',$resp['email'])->count() > 0){
+        if( !empty($resp['email']) && Customer::where('email',$resp['email'])->count() > 0){
             $type = 'old';
             $user = Customer::where('email',$resp['email'])->first();
             return response()
