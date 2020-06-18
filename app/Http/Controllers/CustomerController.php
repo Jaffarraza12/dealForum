@@ -26,13 +26,31 @@ class CustomerController extends Controller
         $data['fbid'] = $resp['fbid'];
         $data['goid'] = $resp['goid'];
         
-        if( Customer::where('email',$resp['email'])->count() > 0){
+        if( !empty($resp['email'])) && Customer::where('email',$resp['email'])->count() > 0){
             $type = 'old';
             $user = Customer::where('email',$resp['email'])->first();
             return response()
             ->json(compact('user','type'));
 
         }
+
+         if( $data['fbid'] != 0 && Customer::where('fbid',$resp['fbid'])->count() > 0){
+             $type = 'old';
+            $user = Customer::where('fbid',$resp['fbid'])->first();
+            return response()
+            ->json(compact('user','type'));
+         
+         }
+
+         if( $data['goid'] != 0 && Customer::where('goid',$resp['goid'])->count() > 0){
+            $type = 'old';
+            $user = Customer::where('goid',$resp['goid'])->first();
+            return response()
+            ->json(compact('user','type'));
+         
+         }
+
+       
 
         $user = Customer::create($data);
         $lastInsertedId = $user->id;
