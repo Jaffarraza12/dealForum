@@ -22,7 +22,7 @@ class CustomerController extends Controller
         $resp = json_decode($request->getContent(), true);
         $data = array();
         $data['name'] = $resp['name'];
-        $data['email'] = ($resp['email'] == 'null') ? this->makeTempEmail() : '';
+        $data['email'] = ($resp['email'] == 'null') ? $this->makeTempEmail() : '';
         $data['fbid'] = $resp['fbid'];
         $data['goid'] = $resp['goid'];
 
