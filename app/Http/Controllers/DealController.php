@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\DealStoreRequest;
 use Auth;
 use Illuminate\Support\Facades\DB;
+use App\Events\MyEvent;
 
 
 
@@ -204,6 +205,7 @@ class DealController extends Controller
         }
    
         $deals =  $deals->get();
+        event(new MyEvent('Hello Man'));
        
         return response()
             ->json(compact('deals'));
