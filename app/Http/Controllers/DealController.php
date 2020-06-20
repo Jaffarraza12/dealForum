@@ -205,7 +205,7 @@ class DealController extends Controller
         }
    
         $deals =  $deals->get();
-        event(new MyEvent('Hello Man'));
+        event(new MyEvent('I am Jaffar Raza'));
        
         return response()
             ->json(compact('deals'));
