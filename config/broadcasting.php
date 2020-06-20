@@ -32,9 +32,9 @@ return [
 
         'pusher' => [
             'driver' => 'pusher',
-            'key' => '1018655',
-            'secret' => '7ec9d257e96a488beccc',
-            'app_id' => 'fd0d435eae5f968d8d6b',
+            'key' => '7ec9d257e96a488beccc',
+            'secret' => 'fd0d435eae5f968d8d6b',
+            'app_id' => '1018655',
             'options' => [
                 'cluster' => 'ap2',
                 'useTLS' => true            ],
