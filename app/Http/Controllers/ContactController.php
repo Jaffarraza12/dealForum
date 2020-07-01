@@ -18,7 +18,8 @@ class ContactController extends Controller
 
 
     function mailer(){
-        Mail::send('vendor.mail.html.default', $data, function($message) use($data) {
+        $data['receiver'] = 'Admin';
+        Mail::send('email.contact', $data, function($message) use($data) {
             $message->to('jaffaraza@gmail.com');
             $message->subject('Contact Message from APP');
         });
