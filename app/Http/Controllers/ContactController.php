@@ -10,11 +10,20 @@ use App\Http\Models\Contact;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\DealStoreRequest;
 use Auth;
-
+use Mail;
 
 
 class ContactController extends Controller
 {
+
+
+    function mailer(){
+        Mail::send('vendor.mail.html.default', $data, function($message) use($data) {
+            $message->to('jaffaraza@gmail.com');
+            $message->subject('Contact Message from APP');
+        });
+
+    }
   
 
     public function Api(Request $request){
