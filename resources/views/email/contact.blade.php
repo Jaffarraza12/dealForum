@@ -1,4 +1,4 @@
-Hello <i>{{ $data['receiver'] }}</i>,
+Hello <i>{{ $data->receiver ?? '' }}</i>,
 <p>This is a demo email for testing purposes! Also, it's the HTML version.</p>
  
 <p><u>Demo object values:</u></p>
