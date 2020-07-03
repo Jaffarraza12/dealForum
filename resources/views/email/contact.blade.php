@@ -3,7 +3,7 @@ Hello <i>Admin</i>,
 
 
 <div>
-	<p>{{$message}}</p>
+	<p>{{ htmlspecialchars($message)}}</p>
 
 </div>
 
