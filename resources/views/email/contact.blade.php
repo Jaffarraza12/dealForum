@@ -1,15 +1,15 @@
 Hello <i>Admin</i>,
 
 <div>
-	
+	<p>{{$data['message']}}</p>
 
 </div>
 
  
 <p>From</p>
 
-<p>{{$name}}</p>
-<p>{{$email}}</p>
+<p>{{$data['name']}}</p>
+<p>{{$data['email']}}</p>
  
 
 
