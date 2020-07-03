@@ -22,15 +22,13 @@ class ContactController extends Controller
         $data = array(
             'name'=> $contact->name,
             'email'=> $contact->email,
-            'message'=> html_entity_decode($contact->message)
+            'message'=> htmlspecialchars($contact->message)
         );
         echo gettype($data['name']);
         echo gettype($data['email']);
         echo gettype($data['message']);
         
 
-        exit;
-        
          $sent = Mail::send('email.contact', $data, function($message) use($data) {
             $message->to('jaffaraza@gmail.com');
             $message->subject('Contact Message from APP');
