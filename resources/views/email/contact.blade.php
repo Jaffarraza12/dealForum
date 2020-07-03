@@ -1,7 +1,10 @@
-Hello <i>{{ $data->receiver ?? '' }}</i>,
-<p>This is a demo email for testing purposes! Also, it's the HTML version.</p>
+Hello <i>Admin</i>,
+<p>{{$data->message}}</p>
  
-<p><u>Demo object values:</u></p>
+<p>From</p>
+
+<p>$data->name</p>
+<p>$data->email</p>
  
 <div>
 
