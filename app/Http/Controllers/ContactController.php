@@ -24,6 +24,11 @@ class ContactController extends Controller
             'email'=> $contact->email,
             'message'=> html_entity_decode($contact->message)
         );
+        echo $data['name'];
+        echo $data['email'];
+        echo $data['message'];
+
+        exit;
         
          $sent = Mail::send('email.contact', $data, function($message) use($data) {
             $message->to('jaffaraza@gmail.com');
