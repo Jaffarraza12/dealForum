@@ -1,19 +1,18 @@
 Hello <i>Admin</i>,
 
-@php
- var_dump($data);
-@endphp
+<div>
+	<p>{{$data['message']}}</p>
 
+</div>
 
  
 <p>From</p>
 
-
-<div>
-
-</div>
+<p>$data['name']</p>
+<p>$data['email']</p>
  
-<p><u>Values passed by With method:</u></p>
+
+
  
 <div>
 
