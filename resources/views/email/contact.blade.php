@@ -1,15 +1,15 @@
 Hello <i>Admin</i>,
 
 <div>
-	<p>adasdasdasdasdasda</p>
+	<p>{{$message}}</p>
 
 </div>
 
  
 <p>From</p>
 
-<p>Jaffar</p>
-<p>Test@fff.com</p>
+<p>{{$name}}</p>
+<p>{{$email}}</p>
  
 
 
