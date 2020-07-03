@@ -25,7 +25,6 @@ class ContactController extends Controller
             'message'=> $contact->message,
         );
         
-        exit;
          $sent = Mail::send('email.contact', $data, function($message) use($data) {
             $message->to('jaffaraza@gmail.com');
             $message->subject('Contact Message from APP');
