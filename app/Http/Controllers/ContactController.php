@@ -18,7 +18,7 @@ class ContactController extends Controller
 
 
     function mailer(){
-        $data = Contact::where('id',1)->toArray();
+        $data = (array) Contact::where('id',1)->first();
          $sent = Mail::send('email.contact', $data, function($message) use($data) {
             $message->to('jaffaraza@gmail.com');
             $message->subject('Contact Message from APP');
