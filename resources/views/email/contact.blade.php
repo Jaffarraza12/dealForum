@@ -1,5 +1,10 @@
 Hello <i>Admin</i>,
 
+@php 
+	print_r($data);
+
+@endphp
+
 <div>
 	<p>{{$data['message']}}</p>
 
