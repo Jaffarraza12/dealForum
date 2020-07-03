@@ -1,11 +1,14 @@
 Hello <i>Admin</i>,
-<p>{{$data['message']}}</p>
+
+@php
+ var_dump($data);
+@endphp
+
+
  
 <p>From</p>
 
-<p>$data['name']</p>
-<p>$data['email']</p>
- 
+
 <div>
 
 </div>
