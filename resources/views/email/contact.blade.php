@@ -2,7 +2,7 @@ Hello <i>Admin</i>,
 
 <div>
 	<p>@php
-	 	echo htmlentities($message);
+	 	echo html_entity_decode($message);
 
 	 @endphp
 	</p>
