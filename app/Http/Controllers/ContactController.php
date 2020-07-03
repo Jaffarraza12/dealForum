@@ -48,8 +48,23 @@ class ContactController extends Controller
         $data['customer'] = $resp['uid'];
        
 
-        $user = Contact::create($data);
+        $query = Contact::create($data);
         $success = true;
+
+
+         $lastInsertedId = $query->id;
+         $contact =  Contact::where('id',$lastInsertedId)->first();
+         $data = array(
+            'name'=> $contact->name,
+            'email'=> $contact->email,
+            'text'=> $contact->message
+         );
+       
+
+         $sent = Mail::send('email.contact', $data, function($message) use($data) {
+            $message->to('jaffaraza@gmail.com');
+            $message->subject('Contact Message from APP');
+        });
     
          return response()
             ->json(compact('success'));
