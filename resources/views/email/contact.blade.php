@@ -1,7 +1,7 @@
 Hello <i>Admin</i>,
 
 <div>
-	<p>{{$message}}</p>
+	
 
 </div>
 
