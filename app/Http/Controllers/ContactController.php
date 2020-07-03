@@ -24,9 +24,10 @@ class ContactController extends Controller
             'email'=> $contact->email,
             'message'=> html_entity_decode($contact->message)
         );
-        echo $data['name'];
-        echo $data['email'];
-        echo $data['message'];
+        echo gettype($data['name']);
+        echo gettype($data['email']);
+        echo gettype($data['message']);
+        
 
         exit;
         
