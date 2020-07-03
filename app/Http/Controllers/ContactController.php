@@ -18,8 +18,8 @@ class ContactController extends Controller
 
 
     function mailer(){
-        $data = (array) Contact::where('id',1)->first();
-        echo $data['email'];
+        $data =  Contact::where('id',1)->first();
+        echo $data->email
         print_r($data);
         exit;
          $sent = Mail::send('email.contact', $data, function($message) use($data) {
