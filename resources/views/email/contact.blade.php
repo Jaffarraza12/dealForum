@@ -1,10 +1,9 @@
 Hello <i>Admin</i>,
 
-<div>
-	<p>@php
-	 	echo html_entity_decode($message);
 
-	 @endphp
+
+<div>
+	<p>{{$message}}
 	</p>
 
 </div>
@@ -14,6 +13,7 @@ Hello <i>Admin</i>,
 
 <a>{{$name}}</a>
 <a>{{$email}}</a>
+
 
  
 <div>

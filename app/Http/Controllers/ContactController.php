@@ -22,7 +22,7 @@ class ContactController extends Controller
         $data = array(
             'name'=> $contact->name,
             'email'=> $contact->email,
-            'message'=> $contact->message,
+            'message'=> html_entity_decode($contact->message)
         );
         
          $sent = Mail::send('email.contact', $data, function($message) use($data) {
