@@ -1,20 +1,16 @@
 Hello <i>Admin</i>,
 
-@php 
-	print_r($data);
 
-@endphp
 
 <div>
-	<p>{{$data['message']}}</p>
+	<p>{{$name}}</p>
 
 </div>
 
  
 <p>From</p>
 
-<p>{{$data['name']}}</p>
-<p>{{$data['email']}}</p>
+
  
 
 
