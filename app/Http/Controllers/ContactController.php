@@ -22,7 +22,7 @@ class ContactController extends Controller
         $data = array(
             'name'=> $contact->name,
             'email'=> $contact->email,
-            'text'=> htmlspecialchars($contact->message)
+            'text'=> $contact->message
         );
        
 

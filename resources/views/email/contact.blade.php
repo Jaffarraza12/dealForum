@@ -11,7 +11,7 @@ Hello <i>Admin</i>,
  
 <p>From</p>
 
-<a>{{$name}}</a>
+<a>{{$name}}</a><br/>
 <a>{{$email}}</a>
 
 
