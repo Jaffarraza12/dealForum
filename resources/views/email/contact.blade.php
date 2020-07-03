@@ -1,9 +1,11 @@
 Hello <i>Admin</i>,
 
-
-
 <div>
-	<p>{{ htmlspecialchars($message)}}</p>
+	<p>@php
+	 	echo htmlspecialchars($message);
+
+	 @endphp
+	</p>
 
 </div>
 
@@ -11,6 +13,7 @@ Hello <i>Admin</i>,
 <p>From</p>
 
 <a>{{$name}}</a>
+<a>{{$email}}</a>
 
  
 <div>
