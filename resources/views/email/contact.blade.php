@@ -2,7 +2,7 @@ Hello <i>Admin</i>,
 
 <div>
 	<p>@php
-	 	echo htmlspecialchars($message);
+	 	echo htmlentities($message);
 
 	 @endphp
 	</p>
