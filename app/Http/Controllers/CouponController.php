@@ -224,14 +224,14 @@ class CouponController extends Controller
 
     public function getCoupon($customer) {
 
-        $coupon =  Coupon::select('deals.name as DEAL','customer.name','customer.email','coupon.code','companies.name as COMPANY','deals.discount')
+        $coupons =  Coupon::select('deals.name as DEAL','deals.image','customer.name','customer.email','coupon.code','companies.name as COMPANY','deals.discount')
         ->join('customer','customer.id','=','coupon.customer')
         ->join('deals','deals.id','=','coupon.deal')
         ->join('companies','deals.company_id','=','companies.id')
         ->where('customer.id',$customer)->get();
 
 
-        return  response()->json(compact('coupon'));
+        return  response()->json(compact('coupons'));
     
 
     }
