@@ -205,7 +205,7 @@ class CouponController extends Controller
         $data = array(
             'name'=> $contact->name,
             'email'=> $contact->email,
-            'code' => $contact->code,
+            'coupon' => $contact->code,
             'discount' => $contact->discount,
             'deal' => $contact->DEAL,
             'company' => $contact->COMPANY
