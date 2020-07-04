@@ -228,7 +228,7 @@ class CouponController extends Controller
         ->join('customer','customer.id','=','coupon.customer')
         ->join('deals','deals.id','=','coupon.deal')
         ->join('companies','deals.company_id','=','companies.id')
-        ->where('customer.id',$customer)->first();
+        ->where('customer.id',$customer)->get();
 
 
         return  response()->json(compact('coupon'));
