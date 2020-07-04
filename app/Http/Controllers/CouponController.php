@@ -10,6 +10,7 @@ use App\Http\Requests\CouponStoreRequest;
 use App\Http\Requests\CouponUpdateRequest;
 use Illuminate\Support\Facades\Gate;
 use Auth;
+use Mail;
 
 class CouponController extends Controller
 {
