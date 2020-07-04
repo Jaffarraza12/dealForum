@@ -222,7 +222,21 @@ class CouponController extends Controller
 
     }
 
-    function generateCoupon() {
+    public function getCoupon($customer) {
+
+        $coupon =  Coupon::select('deals.name as DEAL','customer.name','customer.email','coupon.code','companies.name as COMPANY','deals.discount')
+        ->join('customer','customer.id','=','coupon.customer')
+        ->join('deals','deals.id','=','coupon.deal')
+        ->join('companies','deals.company_id','=','companies.id')
+        ->where('customer.id',$customer)->first();
+
+
+        return  response()->json(compact('coupon'));
+    
+
+    }
+
+    private function generateCoupon() {
     $length = 5;    
     $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
     $charactersLength = strlen($characters);
