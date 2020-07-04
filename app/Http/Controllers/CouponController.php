@@ -215,7 +215,7 @@ class CouponController extends Controller
 
          $sent = Mail::send('email.coupon-customer', $data, function($message) use($data) {
             $message->to($data['email']);
-            $message->subject('Congragulation you have avail discount');
+            $message->subject('Congragulation you get discount on '.$data['deal']);
         });
 
         return  response()->json(compact('success'));
