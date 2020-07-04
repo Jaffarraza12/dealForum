@@ -18,6 +18,7 @@ Route::post('customer', 'CustomerController@CustomerApi');
 Route::post('customerEdit', 'CustomerController@Edit');
 Route::post('rating', 'DealController@DoRating');
 Route::post('contactSave', 'ContactController@Api');
+Route::post('coupon-create', 'ContactController@api');
 
 
  
