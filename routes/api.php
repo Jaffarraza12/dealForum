@@ -12,7 +12,7 @@ Route::get('deals', 'DealController@api');
 Route::get('customer/{id}', 'CustomerController@show');
 Route::get('deal-detail', 'DealController@detailapi');
 Route::get('mailer', 'ContactController@mailer');
-Route::get('coupon-get/{customer}', 'CouponController@getCoupon');
+Route::get('allCoupons/{customer}', 'CouponController@getCoupon');
 
 
 Route::post('customer', 'CustomerController@CustomerApi');
