@@ -6,7 +6,7 @@
 	<div style="background: #842d64;padding:40px 0;text-align: center;; ">
 			<h1 style="    color: #fff;
     text-transform: uppercase;
-    font-size: 45px;>SAVE {{$discount}}% on {{$deal}}</h1>
+    font-size: 45px;">SAVE {{$discount}}% on {{$deal}}</h1>
 			 <p style="text-align:center;color:#fff;">using</p> 
 			<h3 style="text-transform: uppercase;
     color: white;
