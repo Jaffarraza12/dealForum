@@ -218,7 +218,7 @@ class CouponController extends Controller
             $message->subject('Congragulation you have avail discount');
         });
 
-        return  response()->json(compact('succes'));
+        return  response()->json(compact('success'));
 
     }
 
