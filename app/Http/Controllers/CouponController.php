@@ -172,4 +172,63 @@ class CouponController extends Controller
 
 
     }
+
+    public function api(Request $request){
+        $resp = json_decode($request->getContent(), true);
+        if(Coupon::where('customer',$resp['uid'])->count() == 3){
+             $fail = 'You have reached the limit for getting coupons.';   
+             return  response()->json(compact('fail'));
+        }
+
+        if(Coupon::where('customer',$resp['uid'])->where('deal',$resp['deal'])->count() > 0){
+             $fail = 'You have already subscribe this deal.';   
+             return  response()->json(compact('fail'));
+
+        }
+        
+        $data = array();
+        $data['deal'] = $resp['deal'];
+        $data['code'] = $this->generateCoupon();
+        $data['status'] = 1;
+        $data['customer'] = $resp['uid'];
+
+        $query = Coupon::create($data);
+        $success = true;
+
+        $lastInsertedId = $query->id;
+        $contact =  Coupon::select('deals.name as DEAL','customer.name','customer.email','coupon.code','companies.name as COMPANY','deals.discount')
+        ->join('customer','customer.id','=','coupon.customer')
+        ->join('deals','deals.id','=','coupon.deal')
+        ->join('companies','deals.company_id','=','companies.id')
+        ->where('coupon.id',$lastInsertedId)->first();
+        $data = array(
+            'name'=> $contact->name,
+            'email'=> $contact->email,
+            'code' => $contact->code,
+            'discount' => $contact->discount,
+            'deal' => $contact->DEAL,
+            'company' => $contact->COMPANY
+            
+         );
+       
+
+         $sent = Mail::send('email.coupon-customer', $data, function($message) use($data) {
+            $message->to('jaffaraza@gmail.com');
+            $message->subject('Congragulation you have avail discount');
+        });
+
+        return  response()->json(compact('succes'));
+
+    }
+
+    function generateCoupon() {
+    $length = 5;    
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+    }
 }

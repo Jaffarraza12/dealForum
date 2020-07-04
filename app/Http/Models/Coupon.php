@@ -10,6 +10,9 @@ class Coupon extends Model
 
      protected $table = 'coupon';
 
+     protected $fillable = ['deal', 'customer', 'status','code'];
+
+
 
     public function dealing()
     {
