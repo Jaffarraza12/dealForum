@@ -12,7 +12,7 @@ class Chat extends Model
 
 
 
-     protected $fillable = ['chatid', 'customer', 'message','room'];
+     protected $fillable = ['chatid', 'customer', 'message','room','chattimeat'];
 
 
     
