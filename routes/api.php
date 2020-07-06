@@ -21,7 +21,7 @@ Route::post('customerEdit', 'CustomerController@Edit');
 Route::post('rating', 'DealController@DoRating');
 Route::post('contactSave', 'ContactController@Api');
 Route::post('coupon-create', 'CouponController@api');
-Route::post('chat-save/{room}', 'ChatController@post');
+Route::post('chatmessage/{room}', 'ChatController@apiPost');
 
 
  
