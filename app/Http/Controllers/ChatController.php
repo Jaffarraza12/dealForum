@@ -30,11 +30,12 @@ class ChatController extends Controller
 
     public function post(Request $request,$room){
         $resp = json_decode($request->getContent(), true);
+        print_r($resp);
         $data = array();
         $data['chatid'] = $resp['_id'];
         $data['customer'] = $resp['user']['_id'];
         $data['message'] = $resp['text'];
-        $data['room'] = $resp['text'];
+        $data['room'] = $room;
 
         $chat = Chat::create($data);
 
