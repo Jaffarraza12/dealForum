@@ -28,7 +28,7 @@ class ChatController extends Controller
 
     }
 
-    public function apiPost(Request $request){
+    public function apiPost(Request $request,$room){
         $resp = json_decode($request->getContent(), true);
         print_r($resp);
         $data = array();
