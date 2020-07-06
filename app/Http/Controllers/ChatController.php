@@ -36,6 +36,7 @@ class ChatController extends Controller
         $data['customer'] = $resp['user']['_id'];
         $data['message'] = $resp['text'];
         $data['room'] = $room;
+        $data['chattimeat'] = $resp['createdAt'];
 
         $chat = Chat::create($data);
 
