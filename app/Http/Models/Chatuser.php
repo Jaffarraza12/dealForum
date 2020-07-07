@@ -10,6 +10,8 @@ class Chatuser extends Model
 
      protected $table = 'chatuser';
 
+      protected $fillable = ['room', 'customer', 'status'];
+
 
     
 }
