@@ -32,7 +32,7 @@ class ChatController extends Controller
     public function rooms(){
         $rooms = Chatroom::get();
 
-        return response()->json(compact('rooms'))
+        return response()->json(compact('rooms'));
     }
 
     public function apiPost(Request $request,$room){
