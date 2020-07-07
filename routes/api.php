@@ -23,6 +23,7 @@ Route::post('rating', 'DealController@DoRating');
 Route::post('contactSave', 'ContactController@Api');
 Route::post('coupon-create', 'CouponController@api');
 Route::post('chatmessage/{room}', 'ChatController@apiPost');
+Route::post('chatuser', 'ChatController@chatuser');
 
 
  
