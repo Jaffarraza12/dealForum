@@ -36,7 +36,7 @@ class ChatController extends Controller
         return response()->json(compact('rooms'));
     }
 
-    public function chatuser(Request $request,$room){
+    public function chatuser(Request $request){
          $resp = json_decode($request->getContent(), true);
          $data = array();
          $data['room'] = $resp['room'];
