@@ -14,6 +14,7 @@ Route::get('deal-detail', 'DealController@detailapi');
 Route::get('mailer', 'ContactController@mailer');
 Route::get('allCoupons/{customer}', 'CouponController@getCoupon');
 Route::get('chatting/{room}', 'ChatController@get');
+Route::get('chatrooms', 'ChatController@rooms');
 
 
 Route::post('customer', 'CustomerController@CustomerApi');

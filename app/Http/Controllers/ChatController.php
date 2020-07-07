@@ -10,6 +10,7 @@ use App\Http\Requests\CompaniesUpdateRequest;
 use Illuminate\Support\Facades\Gate;
 use App\User;
 use App\Http\Models\Chat;
+use App\Http\Models\Chatroom;
 use Silber\Bouncer\Database\Role;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
@@ -26,6 +27,12 @@ class ChatController extends Controller
         return response()
             ->json(compact('companies'));
 
+    }
+
+    public function rooms(){
+        $rooms = Chatroom::get();
+
+        return response()->json(compact('rooms'))
     }
 
     public function apiPost(Request $request,$room){
