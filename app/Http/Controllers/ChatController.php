@@ -27,6 +27,7 @@ class ChatController extends Controller
 
         $messages =  Chat::join('customer','customer.id','=','chatbox.customer')->where('room',$room)
         ->orderby('chatbox.id','desc')->limit(25);
+         print_r($messages);
         
         $data = array();
         foreach ($messages as $message) {
@@ -44,7 +45,7 @@ class ChatController extends Controller
             );
         }
 
-        print_r($data);
+       
 
 
 
