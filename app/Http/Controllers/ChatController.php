@@ -37,7 +37,7 @@ class ChatController extends Controller
                 'name' => $message->name
             );
             $data[] = array(
-                'text' => $message->text,
+                'text' => $message->message,
                 '_id' => $message->chatid,
                 'sent' => true,
                 'createdAt' => $message->chattimeat,
