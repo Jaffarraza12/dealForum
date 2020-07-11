@@ -30,16 +30,16 @@ class ChatController extends Controller
         
         $data = array();
         foreach ($messages as $message) {
+            $user = array(
+                ['_id'] => $message->customer,
+                ['name'] => $message->name
+            );
             $data[] = array(
                 ['text'] => $message->text,
                 ['_id'] => $message->chatid,
                 ['sent'] => true,
                 ['createdAt'] => $message->chattimeat,
-                ['user'] => [
-                   ['_id'] => $message->customer,
-                   ['name'] => $message->name,
-
-                ];
+                ['user'] => $user
 
             );
         }
