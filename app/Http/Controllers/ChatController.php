@@ -25,7 +25,9 @@ class ChatController extends Controller
     
     public function get(Request $request,$room){
 
-        $messages =  Chat::join('customer','customer.id','=','chatbox.customer')->where('room',$room)
+        //join('customer','customer.id','=','chatbox.customer')->
+
+        $messages =  Chat::where('room',$room)
         ->orderby('chatbox.id','desc')->limit(25);
          print_r($messages);
         
