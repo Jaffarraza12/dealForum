@@ -35,11 +35,11 @@ class ChatController extends Controller
                 ['_id'] => $message->chatid,
                 ['sent'] => true,
                 ['createdAt'] => $message->chattimeat,
-                ['user'] = array(
+                ['user'] => [
                    ['_id'] => $message->customer,
                    ['name'] => $message->name,
 
-                );
+                ];
 
             );
         }
