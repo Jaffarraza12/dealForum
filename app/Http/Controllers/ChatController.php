@@ -23,10 +23,34 @@ use Auth;
 class ChatController extends Controller
 {
     
-    public function get(Request $request){
+    public function get(Request $request,$room){
+
+        $messages =  Chat::join('customer','customer.id','=','chatbox.customer')->where('room',$room)
+        ->orderby('chatbox.id','desc')->limit(25);
+        
+        $data = array();
+        foreach ($messages as $message) {
+            $data[] = array(
+                ['text'] => $message->text,
+                ['_id'] => $message->chatid,
+                ['sent'] => true,
+                ['createdAt'] => $message->chattimeat,
+                ['user'] => array(
+                   '_id' => $message->customer,
+                   'name' => $message->name,
+
+                );
+
+            );
+        }
+
+        print_r($data);
+
+
+
 
         return response()
-            ->json(compact('companies'));
+            ->json(compact('data'));
 
     }
 
