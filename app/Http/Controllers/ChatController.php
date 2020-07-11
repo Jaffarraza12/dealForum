@@ -29,7 +29,6 @@ class ChatController extends Controller
 
         $messages =  Chat::where('room',$room)
         ->orderby('chatbox.id','desc')->limit(25)->get();
-         print_r($messages);
         
         $data = array();
         foreach ($messages as $message) {
@@ -38,11 +37,11 @@ class ChatController extends Controller
                 'name' => $message->name
             );
             $data[] = array(
-                ['text'] => $message->text,
-                ['_id'] => $message->chatid,
-                ['sent'] => true,
-                ['createdAt'] => $message->chattimeat,
-                ['user'] => $user
+                'text' => $message->text,
+                '_id' => $message->chatid,
+                'sent' => true,
+                'createdAt' => $message->chattimeat,
+                'user' => $user
 
             );
         }
