@@ -41,6 +41,7 @@ class CustomerController extends Controller
 
             print_r($data);
 
+            Customer::where('email',$data['email'])->update($data);
             $user = Customer::update($data)->where('email',$data['email'])->first();
             print_r($user);
 
