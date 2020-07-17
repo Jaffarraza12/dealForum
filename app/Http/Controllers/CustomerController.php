@@ -29,7 +29,21 @@ class CustomerController extends Controller
 
         if( Customer::where('email',$data['email'])->count() > 0){
             $type = 'old';
-            $user = Customer::where('email',$data['email'])->first();
+            //login from google
+            if($resp['goid'] != 0 ){
+                   unset($data['fbid']); 
+            }
+
+            //login from fbid
+            if($resp['fbid'] != 0 ){
+                   unset($data['goid']); 
+            }
+
+            print_r($data);
+
+            $user = Customer::update($data)->where('email',$data['email'])->first();
+            print_r($user);
+
             return response()
             ->json(compact('user','type'));
 
