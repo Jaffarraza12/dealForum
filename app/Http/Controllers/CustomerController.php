@@ -40,10 +40,10 @@ class CustomerController extends Controller
             }
 
             print_r($data);
-            $user = Customer::update($data)->where('email',$data['email'])->first();
+            $user = Customer::where('email',$data['email'])->first();
             
             Customer::update($user->id,$data);
-            $user = Customer::update($data)->where('email',$data['email'])->first();
+            $user = Customer::where('email',$data['email'])->first();
             
             print_r($user);
 
