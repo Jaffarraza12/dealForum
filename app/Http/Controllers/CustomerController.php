@@ -22,7 +22,7 @@ class CustomerController extends Controller
         $resp = json_decode($request->getContent(), true);
         $data = array();
         $data['name'] = $resp['name'];
-        $data['email'] = ($resp['email'] == 'null') ? $this->makeTempEmail() : $resp['email'];
+        $data['email'] = ($resp['email'] == 'null') ? '' : $resp['email'];
         $data['fbid'] = $resp['fbid'];
         $data['goid'] = $resp['goid'];
 
@@ -39,14 +39,12 @@ class CustomerController extends Controller
                    unset($data['goid']); 
             }
 
-            print_r($data);
             $user = Customer::where('email',$data['email'])->first();
-            echo $user->id;
+
             Customer::whereId($user->id)->update($data);
+            
             $user = Customer::where('email',$data['email'])->first();
             
-            print_r($user);
-
             return response()
             ->json(compact('user','type'));
 
@@ -55,6 +53,8 @@ class CustomerController extends Controller
          if( $data['fbid'] != 0 && Customer::where('fbid',$data['fbid'])->count() > 0){
              $type = 'old';
             $user = Customer::where('fbid',$data['fbid'])->first();
+            Customer::whereId($user->id)->update($data);
+            $user = Customer::where('fbid',$data['fbid'])->first();
             return response()
             ->json(compact('user','type'));
          
@@ -62,6 +62,8 @@ class CustomerController extends Controller
 
          if( $data['goid'] != 0 && Customer::where('goid',$resp['goid'])->count() > 0){
             $type = 'old';
+            $user = Customer::where('goid',$data['goid'])->first();
+            Customer::whereId($user->id)->update($data);
             $user = Customer::where('goid',$data['goid'])->first();
             return response()
             ->json(compact('user','type'));
