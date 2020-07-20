@@ -15,7 +15,7 @@ use Auth;
 class CustomerController extends Controller
 {
   
-
+    //social login
     public function CustomerApi(Request $request){
 
 
@@ -66,6 +66,39 @@ class CustomerController extends Controller
             ->json(compact('user','type'));
 
     }
+
+
+    //social login
+    public function CustomerLoginApi(Request $request){
+
+
+        $resp = json_decode($request->getContent(), true);
+        $data = array();
+        $data['email'] = $resp['email'];
+        $data['password'] = ($resp['password'] == 'null') ? '' : $resp['email'];
+        
+
+
+        if( Customer::where('email',$data['email'])->where('password',$data['password']->count() > 0){
+            
+            $user = Customer::where('email',$data['email'])->first();
+
+            return response()
+            ->json(compact('user'));
+
+        } else {
+            $failed = 'Wrong Email address and passwrod';
+             return response()
+            ->json(compact('failed'));
+
+        } 
+
+
+    }
+
+
+
+
 
     public function Edit(Request $request){
         $resp = json_decode($request->getContent(), true);
