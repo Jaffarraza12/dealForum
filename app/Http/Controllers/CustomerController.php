@@ -48,9 +48,7 @@ class CustomerController extends Controller
             return response()
             ->json(compact('user','type'));
 
-        }
-
-         if( $data['fbid'] != 0 && Customer::where('fbid',$data['fbid'])->count() > 0){
+        } elseif( $data['fbid'] != 0 && Customer::where('fbid',$data['fbid'])->count() > 0){
              $type = 'old';
             $user = Customer::where('fbid',$data['fbid'])->first();
             Customer::whereId($user->id)->update($data);
@@ -59,18 +57,6 @@ class CustomerController extends Controller
             ->json(compact('user','type'));
          
          }
-
-         if( $data['goid'] != 0 && Customer::where('goid',$resp['goid'])->count() > 0){
-            $type = 'old';
-            $user = Customer::where('goid',$data['goid'])->first();
-            Customer::whereId($user->id)->update($data);
-            $user = Customer::where('goid',$data['goid'])->first();
-            return response()
-            ->json(compact('user','type'));
-         
-         }
-
-       
 
         $user = Customer::create($data);
         $lastInsertedId = $user->id;
