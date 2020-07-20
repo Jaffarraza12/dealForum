@@ -75,7 +75,7 @@ class CustomerController extends Controller
         $resp = json_decode($request->getContent(), true);
         $data = array();
         $data['email'] = $resp['email'];
-        $data['password'] = ($resp['password'] == 'null') ? '' : $resp['email'];
+        $data['password'] = md5($resp['password']);
         
 
 
