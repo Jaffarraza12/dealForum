@@ -79,7 +79,7 @@ class CustomerController extends Controller
         
 
 
-        if( Customer::where('email',$data['email'])->where('password',$data['password']->count() > 0){
+        if( Customer::where('email',$data['email'])->where('password',$data['password'])->count() > 0){
             
             $user = Customer::where('email',$data['email'])->first();
 
