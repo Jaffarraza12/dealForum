@@ -87,7 +87,7 @@ class CustomerController extends Controller
             ->json(compact('user'));
 
         } else {
-            $failed = 'Wrong Email address and passwrod';
+            $failed = 'Wrong Email address or passwrod';
              return response()
             ->json(compact('failed'));
 

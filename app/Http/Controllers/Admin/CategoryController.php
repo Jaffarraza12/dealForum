@@ -34,7 +34,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $categories = Category::Orderby('id','desc')->paginate(15);
+        $categories = Category::Orderby('id','desc')->get();
         $detail =  array();
         foreach ($categories as $cat) {
               foreach (Language::get() as $lang){
