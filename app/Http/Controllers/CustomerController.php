@@ -23,6 +23,7 @@ class CustomerController extends Controller
         $data = array();
         $data['name'] = $resp['name'];
         $data['email'] = ($resp['email'] == 'null') ? '' : $resp['email'];
+        $data['password'] = '';
         $data['fbid'] = $resp['fbid'];
         $data['goid'] = $resp['goid'];
 
@@ -109,6 +110,7 @@ class CustomerController extends Controller
         $data['fbid'] = 0;
         $data['goid'] = 0;
         print_r($data);
+
 
         if($data['name'] == '' || $data['email'] == '' || $data['phone'] == '' || $data['password'] == ''){
 
