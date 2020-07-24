@@ -45,7 +45,7 @@
 
           <div class="form-group {{ $errors->has('icontype') ? 'has-error' : '' }}">
                 <label for="slug">Icon is Image</label>
-                <input type="checkbox"   id="icontype" value="1"  name="icontype" class="form-control" value="1"  {{ ($category->icontype ==  1) ? 'checked="checked"' : '' }} />
+                <input type="checkbox"   id="icontype" value="1"  name="icontype"  value="1"  {{ ($category->icontype ==  1) ? 'checked="checked"' : '' }} style="margin-left:10px;" />
                 @if($errors->has('icontype'))
                     <em class="invalid-feedback">
                         {{ $errors->first('icontype') }}
