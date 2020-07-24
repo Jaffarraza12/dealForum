@@ -105,12 +105,12 @@ class CustomerController extends Controller
         $data['name'] = $resp['name'];
         $data['email'] = $resp['email'];
         $data['phone'] = $resp['phone'];
-        $data['password'] = ($resp['password'] <> '') ? md5($resp['password']) : '';
+        $data['password'] = md5($resp['password']) ;
         $data['fbid'] = 0;
         $data['goid'] = 0;
         
 
-        if($data['name'] == '' || $data['email'] == '' || $data['phone'] == ''){
+        if($data['name'] == '' || $data['email'] == '' || $data['phone'] == '' || $data['password'] == ''){
 
             $failed = 'Please fill complete information';
             
