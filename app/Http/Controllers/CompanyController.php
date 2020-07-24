@@ -84,8 +84,7 @@ class CompanyController extends Controller
     public function store(CompaniesStoreRequest $request)
     {
         //
-        print_r($_POST);
-        exit;
+
           if(!Gate::allows(['users_manage'])) {
             return abort(401);
            }
@@ -115,7 +114,6 @@ class CompanyController extends Controller
         $company->slug =  $request->slug; 
         $company->category_id =  $request->category; 
         $company->image =  $request->image;
-        $company->icontype =  $request->icontype;
         $company->user =  $request->user; 
         $company->save();
        
@@ -196,8 +194,7 @@ class CompanyController extends Controller
         $company->name =  $request->name; 
         $company->slug =  $request->slug; 
         $company->category_id =  $request->category; 
-        $company->icontype =  $request->icontype;
-        if ( Gate::allows('users_manage') ){
+         if ( Gate::allows('users_manage') ){
             $company->user =  $request->user; 
         }
         $company->image =  $request->image;
