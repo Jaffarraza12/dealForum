@@ -109,7 +109,7 @@ class CustomerController extends Controller
         $data['password'] = md5($resp['password']) ;
         $data['fbid'] = 0;
         $data['goid'] = 0;
-        print_r($data);
+        
 
 
         if($data['name'] == '' || $data['email'] == '' || $data['phone'] == '' || $resp['password'] == ''){
