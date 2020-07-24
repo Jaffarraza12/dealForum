@@ -111,7 +111,7 @@ class CustomerController extends Controller
 
         if($data['name'] <> '' || $data['email'] <> '' || $data['phone'] <> ''){
 
-            $failed 'Please fill complete information';
+            $failed = 'Please fill complete information';
             
              
             return response()
@@ -121,7 +121,7 @@ class CustomerController extends Controller
 
         if( Customer::where('email',$data['email'])->count() > 0){
             
-            $failed 'Email Already register';
+            $failed = 'Email Already register';
             
             return response()
             ->json(compact('failed'));
