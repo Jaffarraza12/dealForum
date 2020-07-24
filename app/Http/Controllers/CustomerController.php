@@ -105,6 +105,7 @@ class CustomerController extends Controller
         $data['name'] = $resp['name'];
         $data['email'] = $resp['email'];
         $data['phone'] = $resp['phone'];
+        $data['password'] = ($resp['password'] <> '') ? md5($resp['password']) : '';
         $data['fbid'] = 0;
         $data['goid'] = 0;
 
