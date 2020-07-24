@@ -71,7 +71,7 @@
                 <select name="user" id="user" class="form-control select2" onchange=ShowUserForm() >
                     <option value="">Select Users</option>
                     @foreach($users as $user)
-                        <option value="{{ $user->id }}" {{ ( $user->id == $company->user) ? 'selected="selected"' : '' }} >{{ $user->name.' <'.$user->email.'>' }}</option>
+                        <option value="{{ $user->entity_id }}" {{ ( $user->entity_id == $company->user) ? 'selected="selected"' : '' }} >{{ $user->name.' <'.$user->email.'>' }}</option>
                     @endforeach
                 </select>
                 <em style="color:red;cursor:pointer;;" onclick="ShowUserForm();">Add New User</em>
