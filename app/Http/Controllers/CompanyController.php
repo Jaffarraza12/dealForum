@@ -84,6 +84,8 @@ class CompanyController extends Controller
     public function store(CompaniesStoreRequest $request)
     {
         //
+        print_r($_POST);
+        exit;
           if(!Gate::allows(['users_manage'])) {
             return abort(401);
            }
@@ -107,8 +109,7 @@ class CompanyController extends Controller
                 return redirect()->back()->withInput()->withErrors($validator->errors());
             }
         }
-        print_r($_POST);
-        exit;
+
         $company = new Companies;
         $company->name =  $request->name; 
         $company->slug =  $request->slug; 
