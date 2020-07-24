@@ -67,7 +67,7 @@
 
               <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                 <label for="slug">Image</label>
-                <a ><img  data-input="input-image"  id="thumb-image" class="img-thumbnail"  width="100" height="auto" id="img-image"  src="{{  (old('image')) ?   'https://deal-forum.com/asset'.old('image')  : $img_thumb }}" alt="" title="" data-placeholder="{{ 'Image' }}" /></a>
+                <a ><img  data-input="input-image"  id="thumb-image" class="img-thumbnail"  width="100" height="auto" id="img-image"  src="{{  (old('image')) ?   'https://deal-forum.com/asset'.old('image')  : 'https://deal-forum.com/asset'.$img_thumb }}" alt="" title="" data-placeholder="{{ 'Image' }}" /></a>
                 <input type="hidden" name="image" value="{{ old('image') }}" id="input-image" />
                 <p class="helper-block">
                     {{ trans('cruds.user.fields.email_helper') }}
