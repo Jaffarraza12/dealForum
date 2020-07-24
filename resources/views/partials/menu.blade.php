@@ -52,8 +52,8 @@
                         </i>
                         {{ trans('cruds.userManagement.title') }}
                     </a>
-                    <ul class="nav-dropdown-items" style="display: none;">
-                        <li class="nav-item" style="display: none;" >
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item"  >
                             <a href="{{ route("admin.abilities.index") }}" class="nav-link {{ request()->is('admin/abilities') || request()->is('admin/abilities/*') ? 'active' : '' }}">
                                 <i class="fa-fw fas fa-unlock-alt nav-icon">
 
@@ -61,7 +61,7 @@
                                 {{ trans('cruds.ability.title') }}
                             </a>
                         </li>
-                        <li class="nav-item" style="display: none;">
+                        <li class="nav-item" >
                             <a href="{{ route("admin.roles.index") }}" class="nav-link {{ request()->is('admin/roles') || request()->is('admin/roles/*') ? 'active' : '' }}">
                                 <i class="fa-fw fas fa-briefcase nav-icon">
 
