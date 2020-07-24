@@ -44,7 +44,6 @@ class CompanyController extends Controller
                 $companies = $companies->where('user',Auth::user()->id);
 
        }
-       exit;
          $companies = $companies->get();
         return view('company.index',compact('companies'));
     }
