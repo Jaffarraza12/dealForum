@@ -97,6 +97,47 @@ class CustomerController extends Controller
     }
 
 
+     public function CustomerRegisterApi(Request $request){
+
+
+        $resp = json_decode($request->getContent(), true);
+        $data = array();
+        $data['name'] = $resp['name'];
+        $data['email'] = $resp['email'];
+        $data['phone'] = $resp['phone'];
+        $data['fbid'] = 0;
+        $data['goid'] = 0;
+
+        if($data['name'] <> '' || $data['email'] <> '' || $data['phone'] <> ''){
+
+            $failed 'Please fill complete information';
+            
+             
+            return response()
+            ->json(compact('failed'));
+
+        }
+
+        if( Customer::where('email',$data['email'])->count() > 0){
+            
+            $failed 'Email Already register';
+            
+            return response()
+            ->json(compact('failed'));
+
+        } 
+
+        $user = Customer::create($data);
+        $lastInsertedId = $user->id;
+        $type = 'new';
+        $user = Customer::where('id',$lastInsertedId)->first(); 
+         return response()
+            ->json(compact('user','type'));
+
+    }
+
+
+
 
 
 

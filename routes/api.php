@@ -20,6 +20,7 @@ Route::get('chatrooms', 'ChatController@rooms');
 Route::post('customer', 'CustomerController@CustomerApi');
 Route::post('customerEdit', 'CustomerController@Edit');
 Route::post('customerLogin', 'CustomerController@CustomerLoginApi');
+Route::post('customerRegister', 'CustomerController@CustomerRegisterApi');
 Route::post('rating', 'DealController@DoRating');
 Route::post('contactSave', 'ContactController@Api');
 Route::post('coupon-create', 'CouponController@api');
