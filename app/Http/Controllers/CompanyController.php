@@ -40,10 +40,13 @@ class CompanyController extends Controller
     {
        
        $companies = Companies::orderby('id','desc');
+       echo Auth::user()->id;
         if(Gate::allows(['company_manage'])) {
+            echo Auth::user()->id;
                 $companies = $companies->where('user',Auth::user()->id);
 
        }
+       exit;
          $companies = $companies->get();
         return view('company.index',compact('companies'));
     }
