@@ -29,7 +29,7 @@ class DealStoreRequest extends FormRequest
             'name' => 'required',
             'description' => 'required',
             'discount' => 'required|numeric',
-            'company' => (Gate::allows('users_manage')) ? 'required|numeric' : '',
+            'company' => 'required|numeric',
         ];
     }
 
