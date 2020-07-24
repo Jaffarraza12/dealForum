@@ -107,6 +107,8 @@ class CompanyController extends Controller
                 return redirect()->back()->withInput()->withErrors($validator->errors());
             }
         }
+        print_r($_POST);
+        exit;
         $company = new Companies;
         $company->name =  $request->name; 
         $company->slug =  $request->slug; 
