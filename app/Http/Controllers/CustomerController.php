@@ -112,7 +112,7 @@ class CustomerController extends Controller
         print_r($data);
 
 
-        if($data['name'] == '' || $data['email'] == '' || $data['phone'] == '' || $data['password'] == ''){
+        if($data['name'] == '' || $data['email'] == '' || $data['phone'] == '' || $resp['password'] == ''){
 
             $failed = 'Please fill complete information';
             
