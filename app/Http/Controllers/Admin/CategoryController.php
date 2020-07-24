@@ -75,7 +75,7 @@ class CategoryController extends Controller
         $category = new Category;
         $category->slug =  $request->slug; 
         $category->image =  $request->image;
-        $category->icontype =  $request->icontype;
+        $category->icontype =  (int)$request->icontype;
        
         if ($category->save()) {
              response()->json(array('success' => true, 'last_insert_id' => $category->id), 200);
@@ -150,7 +150,7 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->slug =  $request->slug; 
         $category->image =  $request->image;
-        $category->icontype =  $request->icontype;
+        $category->icontype = (int) $request->icontype;
         $category->save();
         foreach ($request->name as $key => $value) {
                    $categoryDetail = CategoryDetail::where('category_id',$id)->where('language',$key)->first();
