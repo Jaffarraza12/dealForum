@@ -47,7 +47,7 @@
                 </li>
                  @can('users_manage')
                 <li class="nav-item nav-dropdown">
-                    <a href="{{ route("admin.abilities.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
+                    <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
                         <i class="fa-fw fas fa-users nav-icon">
 
                         </i>
