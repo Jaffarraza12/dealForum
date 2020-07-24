@@ -45,15 +45,16 @@
                         Coupons
                     </a>
                 </li>
+                 @can('users_manage')
                 <li class="nav-item nav-dropdown">
-                    <a href="{{ route("admin.abilities.index") }}" class="nav-link {{ request()->is('admin/abilities') || request()->is('admin/abilities/*') ? 'active' : '' }}">
+                    <a href="{{ route("admin.abilities.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
                         <i class="fa-fw fas fa-users nav-icon">
 
                         </i>
                         {{ trans('cruds.userManagement.title') }}
                     </a>
-                    <ul class="nav-dropdown-items">
-                        <li class="nav-item"  >
+                    <ul class="nav-dropdown-items" style="display: none;">
+                        <li class="nav-item" style="display: none;" >
                             <a href="{{ route("admin.abilities.index") }}" class="nav-link {{ request()->is('admin/abilities') || request()->is('admin/abilities/*') ? 'active' : '' }}">
                                 <i class="fa-fw fas fa-unlock-alt nav-icon">
 
@@ -61,7 +62,7 @@
                                 {{ trans('cruds.ability.title') }}
                             </a>
                         </li>
-                        <li class="nav-item" >
+                        <li class="nav-item" style="display: none;">
                             <a href="{{ route("admin.roles.index") }}" class="nav-link {{ request()->is('admin/roles') || request()->is('admin/roles/*') ? 'active' : '' }}">
                                 <i class="fa-fw fas fa-briefcase nav-icon">
 
@@ -79,6 +80,7 @@
                         </li>
                     </ul>
                 </li>
+             @endcan   
              @can('users_manage')
             <li class="nav-item">
                 <a href="{{ route('admin.setting') }}" class="nav-link {{ request()->is('setting') ? 'active' : '' }}">
