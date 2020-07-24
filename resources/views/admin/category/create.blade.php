@@ -42,6 +42,18 @@
             </div>
 
 
+          <div class="form-group {{ $errors->has('icontype') ? 'has-error' : '' }}">
+                <label for="slug">Icon is Image</label>
+                <input type="checkbox"   id="icontype" value="1"  name="icontype" class="form-control" value="{{ old('icontype', isset($category) ? $category->icontype : '') }}" >
+                @if($errors->has('icontype'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('icontype') }}
+                    </em>
+                @endif
+               
+            </div>   
+
+
           <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                 <label for="slug">Image</label>
                 <a ><img  data-input="input-image"  id="thumb-image" class="img-thumbnail"  width="100" height="auto" id="img-image"  src="{{  (old('image')) ?   'https://deal-forum.com/asset'.old('image')  : 'https://deal-forum.com/asset'.$img_thumb }}" alt="" title="" data-placeholder="{{ 'Image' }}" /></a>
