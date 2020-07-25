@@ -80,12 +80,10 @@
         $('#addSlide').click(function(){
              sItem = $('.sliderItem').length
 
-             Sliderhtml = '<div  class="row sliderItem"><div class="col-sm"> <div class="form-group"><label>Image</label><a ><img  data-input="input-image-'+sItem+'"  id="thumb-image'+sItem+'" class="img-thumbnail"  width="100" height="auto" id="img-image'+sItem+'"  src="{{   'https://deal-forum.com/asset'.$img_thumb }}" alt=""  /></a>
+             Sliderhtml = '<div  class="row sliderItem"><div class="col-sm"> <div class="form-group"><label>Image</label><a ><img  data-input="input-image-'+sItem+'"  id="thumb-image'+sItem+'" class="img-thumbnail"  width="100" height="auto" id="img-image'+sItem+'"  src="{{ 'https://deal-forum.com/asset'.$img_thumb }}" alt=""  /></a>
                          <input type="hidden" name="silderImage[]"  />
-                        </div>
-                    </div>
-                <div class="col-sm">
-                    <div class="form-group">
+                        </div>                    </div>
+                <div class="col-sm"><div class="form-group">
                           <label>Title</label>
                           <input type="text"  name="silderTitle[]" class="form-control" value="" >
                      </div>
@@ -97,10 +95,10 @@
                      </div>
                 </div></div>';
 
-                $('.sliderItem').append(Sliderhtml)
+                $('.sliderContent').append(Sliderhtml)
 
 
-        })
+        });
         
     })
 </script>
