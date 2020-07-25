@@ -56,8 +56,9 @@
                      </div>
                 </div>
               </div>
-              <a id="addSlide" style="float:right;text-align: right;cursor: pointer;">Add Slide</a>
+             
             </div>
+             <a id="addSlide" style="float:right;text-align: right;cursor: pointer;">Add Slide</a>
             
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
