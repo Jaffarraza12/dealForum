@@ -1,6 +1,13 @@
 @extends('layouts.admin')
 @section('content')
 
+<style>
+  .card-header{
+    font-size: 20px;
+  }  
+        
+</style>
+
 <div class="card">
     <div class="card-header">
         Settings
@@ -27,8 +34,8 @@
             <div class="card-header">
                Slider For Mobile App
             </div>
-           <div class="container " >
-              <div class="row sliderContent">
+           <div class="container sliderContent" >
+              <div  class="row sliderItem">
                 <div class="col-sm">
                     <div class="form-group">
                           <label>Image</label>
@@ -44,19 +51,17 @@
                 </div>
                 <div class="col-sm">
                  <div class="form-group">
-                          <label>Links</label>
+                          <label>Link</label>
                           <input type="text"  name="silderLink[]" class="form-control" value="" >
                      </div>
                 </div>
               </div>
-              <a style="float:right;text-align: right;">Add Slide</a>
+              <a id="addSlide" style="float:right;text-align: right;">Add Slide</a>
             </div>
             
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
             </div>
-
-
         </form>
 
         
@@ -69,4 +74,37 @@
 
 
 </div>
+<script>
+    $(document).ready(function(){
+
+        $('#addSlide').click(function(){
+             sItem = $('.sliderItem').length
+
+             Sliderhtml = '<div  class="row sliderItem"><div class="col-sm">
+                    <div class="form-group">
+                          <label>Image</label>
+                          <a ><img  data-input="input-image-'+sItem+'"  id="thumb-image'+sItem+'" class="img-thumbnail"  width="100" height="auto" id="img-image'+sItem+'"  src="{{   'https://deal-forum.com/asset'.$img_thumb }}" alt=""  /></a>
+                         <input type="hidden" name="silderImage[]"  />
+                        </div>
+                    </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                          <label>Title</label>
+                          <input type="text"  name="silderTitle[]" class="form-control" value="" >
+                     </div>
+                </div>
+                <div class="col-sm">
+                 <div class="form-group">
+                          <label>Link</label>
+                          <input type="text"  name="silderLink[]" class="form-control" / >
+                     </div>
+                </div></div>';
+
+                $('.sliderItem').append(Sliderhtml)
+
+
+        })
+        
+    })
+</script>
 @endsection
