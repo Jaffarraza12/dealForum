@@ -38,27 +38,33 @@
                Slider For Mobile App
             </div>
            <div class="container sliderContent" >
+               @if($slider_content)
+                @php $i = 0;@endphp
+                @foreach($slider_content as $slider)
               <div  class="row sliderItem">
                 <div class="col-sm">
                     <div class="form-group">
                           <label>Image</label>
-                          <a ><img  data-input="input-image"  id="thumb-image" class="img-thumbnail"  width="100" height="auto" id="img-image"  src="{{  (old('image')) ?   'https://deal-forum.com/asset'.old('image')  : 'https://deal-forum.com/asset'.$img_thumb }}" alt="" title="" data-placeholder="{{ 'Image' }}" /></a>
-                         <input id="input-image" type="hidden" name="silderImage[]" value="" />
+                          <a ><img  data-input="input-image"  id="thumb-image" class="img-thumbnail"  width="100" height="auto" id="img-image"  src="{{  ($slider->image) ?   'https://deal-forum.com/asset'.$slider->image  : 'https://deal-forum.com/asset/Image/images.png' }}" alt="" title="" data-placeholder="{{ 'Image' }}" /></a>
+                         <input id="input-image" type="hidden" name="silderImage[]" value="{{$slider->image}}" />
                         </div>
                     </div>
                 <div class="col-sm">
                     <div class="form-group">
                           <label>Title</label>
-                          <input type="text"  name="silderTitle[]" class="form-control" value="" >
+                          <input type="text"  name="silderTitle[]" class="form-control" value="{{$slider->title}}" >
                      </div>
                 </div>
                 <div class="col-sm">
                  <div class="form-group">
                           <label>Link</label>
-                          <input type="text"  name="silderLink[]" class="form-control" value="" >
+                          <input type="text"  name="silderLink[]" class="form-control" value="{{$slider->link}}" >
                      </div>
                 </div>
               </div>
+               @php ++$i @endphp
+              @endforeach
+              @endif
              
             </div>
              <a id="addSlide" style="float:right;text-align: right;cursor: pointer;">Add Slide</a>

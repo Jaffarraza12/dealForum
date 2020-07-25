@@ -35,8 +35,9 @@ class SettingController extends Controller
         $settings =Setting::where('type','!=','json')->get();
         $slider =Setting::where('key','slider_content')->first();
         $slider_content = json_decode($slider->value);
-        print_r($slider_content);
-        return view('admin.setting.edit',compact('settings','img_thumb'));
+        
+
+        return view('admin.setting.edit',compact('settings','img_thumb','slider_content'));
     }
 
     public function save(Request $request){
