@@ -35,7 +35,7 @@ class SettingController extends Controller
         $settings =Setting::where('type','!=','json')->get();
         $slider =Setting::where('key','slider_content')->first();
         $slider_content = json_decode($slider->value);
-        
+
 
         return view('admin.setting.edit',compact('settings','img_thumb','slider_content'));
     }
@@ -55,7 +55,6 @@ class SettingController extends Controller
         $i = 0;
         $slider = array();
         foreach($request->silderImage as $img) {
-             
             if(!empty($img)){
                 $slider[] = array(
                     'title' => $request->silderTitle[$i] ,
@@ -63,9 +62,7 @@ class SettingController extends Controller
                     'image' => $img
                 ); 
             }
-
-          
-
+            ++$i;
           } 
 
         Setting::where('key','slider_content')->update(['value' => json_encode($slider) ]);    
