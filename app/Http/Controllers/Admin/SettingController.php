@@ -40,7 +40,7 @@ class SettingController extends Controller
     	if (! Gate::allows('users_manage')) {
             return abort(401);
         }
-        print_r($POST);
+        print_r($_POST);
 
         foreach ($request->all() as $key => $value) {
             if($key == '_method' || $key == '_token' || $key == 'silderImage' || $key == 'silderTitle' ||  $key == 'silderLink'  ){
