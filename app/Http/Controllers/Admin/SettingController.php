@@ -64,8 +64,22 @@ class SettingController extends Controller
             }
             ++$i;
           } 
+        Setting::where('key','slider_content')->update(['value' => json_encode($slider) ]);
 
-        Setting::where('key','slider_content')->update(['value' => json_encode($slider) ]);    
+
+        $i = 0;
+        $helpContent = array();
+        foreach($request->HelpQuestion as $question) {
+            if(!empty($question)){
+                $helpContent[] = array(
+                    'question' => $question ,
+                    'answer' => $request->$answer[$i] ,
+                    
+                ); 
+            }
+            ++$i;
+          } 
+        Setting::where('key','help_content')->update(['value' => json_encode($helpContent) ]);    
    
         return redirect($this->redirectTo)->with('message', 'Setting have been saved!');
 

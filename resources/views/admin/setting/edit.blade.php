@@ -68,6 +68,40 @@
              
             </div>
              <a id="addSlide" style="float:right;text-align: right;cursor: pointer;">Add Slide</a>
+
+             <div style="clear: both"></div>
+
+             <div class="card-header">
+               Content for Help Screen 
+            </div>
+            <div class="container HelpContent" >
+              <div  class="row HelpItem">
+                <div class="col-sm">
+                    <div class="form-group">
+                          <label>Question</label>
+                          <input type="text"  name="HelpQuestion[]" class="form-control" value="">
+                          
+                        </div>
+                    </div>
+                <div class="col-sm">
+                 <div class="form-group">
+                          <label>Link</label>
+                          <textarea name="HelpAnswer[]" class="form-control" value=""></textarea>  
+                     </div>
+                </div>
+              </div>
+              
+             
+            </div>
+
+             <a id="addItem" style="float:right;text-align: right;cursor: pointer;">Add Item</a>
+
+             <div style="clear: both"></div>
+
+
+
+
+            
             
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
@@ -96,6 +130,17 @@
 
                 $('.sliderContent').append(Sliderhtml)
                 FileManagerLoad()
+
+
+        });
+
+        $('#addItem').click(function(){
+             sItem = $('.HelpItem').length
+
+             Contenthtml = '<div class="row HelpItem"><div class="col-sm"><div class="form-group"> <label>Question</label> <input type="text" name="HelpQuestion[]" class="form-control" value=""></div></div><div class="col-sm"><div class="form-group"> <label>Answer</label><textarea name="HelpAnswer[]" class="form-control" value=""></textarea></div></div>';
+
+                $('.HelpContent').append(Contenthtml)
+               
 
 
         });
