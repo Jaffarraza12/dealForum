@@ -40,7 +40,7 @@ class SettingController extends Controller
     	if (! Gate::allows('users_manage')) {
             return abort(401);
         }
-        print_r($request->all);
+        print_r($_POST);
         exit;
 
         foreach ($request->all() as $key => $value) {
