@@ -75,21 +75,27 @@
                Content for Help Screen 
             </div>
             <div class="container HelpContent" >
+                @if($help_content)
+                @php $i = 0;@endphp
+                @foreach($help_content as $help)
               <div  class="row HelpItem">
                 <div class="col-sm">
                     <div class="form-group">
                           <label>Question</label>
-                          <input type="text"  name="HelpQuestion[]" class="form-control" value="">
+                          <input type="text"  name="HelpQuestion[]" class="form-control" value="{{$help->question}}">
                           
                         </div>
                     </div>
                 <div class="col-sm">
                  <div class="form-group">
                           <label>Link</label>
-                          <textarea name="HelpAnswer[]" class="form-control" value=""></textarea>  
+                          <textarea name="HelpAnswer[]" class="form-control" value="">{{$help->answer}}</textarea>  
                      </div>
                 </div>
               </div>
+               @php ++$i @endphp
+              @endforeach
+              @endif
               
              
             </div>
