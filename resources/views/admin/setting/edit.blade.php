@@ -33,7 +33,7 @@
                     <div class="form-group">
                           <label>Image</label>
                           <a ><img  data-input="input-image"  id="thumb-image" class="img-thumbnail"  width="100" height="auto" id="img-image"  src="{{  (old('image')) ?   'https://deal-forum.com/asset'.old('image')  : 'https://deal-forum.com/asset'.$img_thumb }}" alt="" title="" data-placeholder="{{ 'Image' }}" /></a>
-                         <input type="hidden" name="silderImage[]" value="{{ (old('image')) ? old('image') : $category->image }}" />
+                         <input type="hidden" name="silderImage[]" value="" />
                         </div>
                     </div>
                 <div class="col-sm">
