@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Models\Admin\Setting;
 
+
 class SettingController extends Controller
 {
     //
@@ -17,7 +18,7 @@ class SettingController extends Controller
      var $image_thumb ;
 
 
-     public function __construct()
+     public function __construct(Request $request)
     {
         $this->middleware('auth');
         if($request->getHttpHost() == 'localhost') { 

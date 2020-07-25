@@ -45,7 +45,7 @@
                 <div class="col-sm">
                  <div class="form-group">
                           <label>Links</label>
-                          <input type="text"  name="silderTitle[]" class="form-control" value="" >
+                          <input type="text"  name="silderLink[]" class="form-control" value="" >
                      </div>
                 </div>
               </div>
