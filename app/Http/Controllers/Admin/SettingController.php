@@ -51,7 +51,8 @@ class SettingController extends Controller
         $i = 0;
         foreach($request->silderImage as $img) {
             echo $request->silderTitle[0].'<br/>';
-            echo $request->silderTitle.0;
+            echo $request->silderTitle[1].'<br/>';
+           
             $slider = array();
             if(!empty($img)){
                 $slider[] = array(
