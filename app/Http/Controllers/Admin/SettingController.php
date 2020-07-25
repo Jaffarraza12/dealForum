@@ -40,11 +40,10 @@ class SettingController extends Controller
     	if (! Gate::allows('users_manage')) {
             return abort(401);
         }
-        print_r($_POST);
-        exit;
 
         foreach ($request->all() as $key => $value) {
-        	if($key == '_method' || $key == '_token' ){
+        	echo $key.'<br/>';
+            if($key == '_method' || $key == '_token' ){
         		continue;
         	} else {
         		Setting::where('key',$key)->update(['value' => $value]);
