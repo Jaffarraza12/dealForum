@@ -73,7 +73,7 @@ class SettingController extends Controller
             if(!empty($question)){
                 $helpContent[] = array(
                     'question' => $question ,
-                    'answer' => $request->$HelpAnswer[$i] ,
+                    'answer' => $request->HelpAnswer[$i] ,
                     
                 ); 
             }
