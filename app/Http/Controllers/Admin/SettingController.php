@@ -51,6 +51,7 @@ class SettingController extends Controller
         	}
         	
         }
+        exit;
         return redirect($this->redirectTo)->with('message', 'Setting have been saved!');
 
     }
