@@ -14,10 +14,18 @@ class SettingController extends Controller
 
 
      protected $redirectTo = '/admin/setting';
+     var $image_thumb ;
+
 
      public function __construct()
     {
         $this->middleware('auth');
+        if($request->getHttpHost() == 'localhost') { 
+            $this->image_thumb = '/dealForum/public/images.png';
+        } else {
+            $this->image_thumb = '/Image/images.png';
+       
+        }
     }
 
     public function index()

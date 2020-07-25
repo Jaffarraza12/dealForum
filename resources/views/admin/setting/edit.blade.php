@@ -25,20 +25,31 @@
             </div>
             @endforeach
             <div class="card-header">
-               Slider Setting
+               Slider For Mobile App
             </div>
-           <div class="container">
-              <div class="row">
+           <div class="container " >
+              <div class="row sliderContent">
                 <div class="col-sm">
-                  One of three columns
+                    <div class="form-group">
+                          <label>Image</label>
+                          <a ><img  data-input="input-image"  id="thumb-image" class="img-thumbnail"  width="100" height="auto" id="img-image"  src="{{  (old('image')) ?   'https://deal-forum.com/asset'.old('image')  : 'https://deal-forum.com/asset'.$img_thumb }}" alt="" title="" data-placeholder="{{ 'Image' }}" /></a>
+                         <input type="hidden" name="silderImage[]" value="{{ (old('image')) ? old('image') : $category->image }}" />
+                        </div>
+                    </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                          <label>Title</label>
+                          <input type="text"  name="silderTitle[]" class="form-control" value="" >
+                     </div>
                 </div>
                 <div class="col-sm">
-                  One of three columns
-                </div>
-                <div class="col-sm">
-                  One of three columns
+                 <div class="form-group">
+                          <label>Links</label>
+                          <input type="text"  name="silderTitle[]" class="form-control" value="" >
+                     </div>
                 </div>
               </div>
+              <a style="float:right;text-align: right;">Add Slide</a>
             </div>
             
             <div>
