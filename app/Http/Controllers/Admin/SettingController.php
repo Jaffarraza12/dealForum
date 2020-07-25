@@ -40,9 +40,7 @@ class SettingController extends Controller
     	if (! Gate::allows('users_manage')) {
             return abort(401);
         }
-        print_r($_POST);
-
-        foreach ($request->all() as $key => $value) {
+         foreach ($request->all() as $key => $value) {
             if($key == '_method' || $key == '_token' || $key == 'silderImage' || $key == 'silderTitle' ||  $key == 'silderLink'  ){
         		continue;
         	} else {
@@ -50,12 +48,18 @@ class SettingController extends Controller
         		
         	}
         }
-        print_r($request->silderImage);
+        $i = 0;
         foreach($request->silderImage as $img) {
-            echo  $img;
+            $slider = array();
             if(!empty($img)){
-
+                $slider[] = array(
+                    'title' => $request->silderTitle.'.'.$i ,
+                    'link' => $request->silderLink.'.'.$i ,
+                    'image' => $img
+                ); 
             }
+
+            print_r($slider);
 
           }   
         exit;   
