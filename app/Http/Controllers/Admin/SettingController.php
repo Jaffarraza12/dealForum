@@ -34,8 +34,9 @@ class SettingController extends Controller
     	 if (! Gate::allows('users_manage')) {
             return abort(401);
         }
+        $img_thumb =   $this->image_thumb ;  
         $settings =Setting::get();
-        return view('admin.setting.edit',compact('settings'));
+        return view('admin.setting.edit',compact('settings','img_thumb'));
     }
 
     public function save(Request $request){
