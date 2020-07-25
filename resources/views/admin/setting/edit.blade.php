@@ -27,9 +27,28 @@
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
             </div>
+
+
         </form>
+
+         <div class="card-header">
+           Slider Setting
+        </div>
+        <div class="row SliderContent">
+            <div class="SliderItem">
+                <div class="col-md-4">Col</div>
+                <div class="col-md-4">Col</div>
+                <div class="col-md-4">Col</div>
+            </div>
+        </div>
+        
+
 
 
     </div>
+    
+
+
+
 </div>
 @endsection
