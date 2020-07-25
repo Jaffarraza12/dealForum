@@ -56,7 +56,7 @@
                      </div>
                 </div>
               </div>
-              <a id="addSlide" style="float:right;text-align: right;">Add Slide</a>
+              <a id="addSlide" style="float:right;text-align: right;cursor: pointer;">Add Slide</a>
             </div>
             
             <div>
@@ -80,10 +80,7 @@
         $('#addSlide').click(function(){
              sItem = $('.sliderItem').length
 
-             Sliderhtml = '<div  class="row sliderItem"><div class="col-sm">
-                    <div class="form-group">
-                          <label>Image</label>
-                          <a ><img  data-input="input-image-'+sItem+'"  id="thumb-image'+sItem+'" class="img-thumbnail"  width="100" height="auto" id="img-image'+sItem+'"  src="{{   'https://deal-forum.com/asset'.$img_thumb }}" alt=""  /></a>
+             Sliderhtml = '<div  class="row sliderItem"><div class="col-sm"> <div class="form-group"><label>Image</label><a ><img  data-input="input-image-'+sItem+'"  id="thumb-image'+sItem+'" class="img-thumbnail"  width="100" height="auto" id="img-image'+sItem+'"  src="{{   'https://deal-forum.com/asset'.$img_thumb }}" alt=""  /></a>
                          <input type="hidden" name="silderImage[]"  />
                         </div>
                     </div>
