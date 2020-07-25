@@ -36,9 +36,9 @@
         </div>
         <div class="row SliderContent">
             <div class="SliderItem">
-                <div class="col-md-4">Col</div>
-                <div class="col-md-4">Col</div>
-                <div class="col-md-4">Col</div>
+                <div class="col">Col</div>
+                <div class="col">Col</div>
+                <div class="col">Col</div>
             </div>
         </div>
         
