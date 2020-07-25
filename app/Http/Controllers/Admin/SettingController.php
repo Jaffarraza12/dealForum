@@ -33,6 +33,9 @@ class SettingController extends Controller
         }
         $img_thumb =   $this->image_thumb ;  
         $settings =Setting::where('type','!=','json')->get();
+        $slider =Setting::where('key','slider_content')->first();
+        $slider_content = json_decode($slider->value);
+        print_r($slider_content);
         return view('admin.setting.edit',compact('settings','img_thumb'));
     }
 
