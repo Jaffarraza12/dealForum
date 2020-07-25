@@ -27,14 +27,18 @@
             <div class="card-header">
                Slider Setting
             </div>
-            <div class="container">
-                <div class="row SliderContent">
-                    <div class="SliderItem">
-                        <div class="col-sm">Col</div>
-                        <div class="col-sm">Col</div>
-                        <div class="col-sm">Col</div>
-                    </div>
+           <div class="container">
+              <div class="row">
+                <div class="col-sm">
+                  One of three columns
                 </div>
+                <div class="col-sm">
+                  One of three columns
+                </div>
+                <div class="col-sm">
+                  One of three columns
+                </div>
+              </div>
             </div>
             
             <div>
