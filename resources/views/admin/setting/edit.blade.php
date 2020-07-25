@@ -74,6 +74,8 @@
 
 
 </div>
+@endsection
+ @section('scripts')
 <script>
     $(document).ready(function(){
 
