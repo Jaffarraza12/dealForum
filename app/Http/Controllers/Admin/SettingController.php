@@ -62,10 +62,10 @@ class SettingController extends Controller
 
           
 
-          }   
+          } 
 
-        echo json_encode($slider);
-        exit;   
+        Setting::where('key','slider_content')->update(['value' => json_encode($slider) ]);    
+   
         return redirect($this->redirectTo)->with('message', 'Setting have been saved!');
 
     }
