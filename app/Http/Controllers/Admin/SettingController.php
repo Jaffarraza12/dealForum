@@ -11,9 +11,6 @@ use App\Http\Models\Admin\Setting;
 class SettingController extends Controller
 {
     //
-
-
-
      protected $redirectTo = '/admin/setting';
      var $image_thumb ;
 
@@ -35,7 +32,7 @@ class SettingController extends Controller
             return abort(401);
         }
         $img_thumb =   $this->image_thumb ;  
-        $settings =Setting::get();
+        $settings =Setting::where('type','!=','json')->get();
         return view('admin.setting.edit',compact('settings','img_thumb'));
     }
 
@@ -43,8 +40,11 @@ class SettingController extends Controller
     	if (! Gate::allows('users_manage')) {
             return abort(401);
         }
+        print_r($request->all);
+        exit;
+
         foreach ($request->all() as $key => $value) {
-        	if($key == '_method' || $key == '_token'){
+        	if($key == '_method' || $key == '_token' ){
         		continue;
         	} else {
         		Setting::where('key',$key)->update(['value' => $value]);

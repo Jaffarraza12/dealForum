@@ -5,6 +5,9 @@
   .card-header{
     font-size: 20px;
   }  
+  .sliderContent{
+    padding:20px;
+  }
         
 </style>
 
