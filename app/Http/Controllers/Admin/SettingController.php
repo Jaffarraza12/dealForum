@@ -42,16 +42,22 @@ class SettingController extends Controller
         }
 
         foreach ($request->all() as $key => $value) {
-        	echo $key.'<br/>';
-            if($key == '_method' || $key == '_token' ){
+            if($key == '_method' || $key == '_token' || $key == 'silderImage' || $key == 'silderTitle' ||  $key == 'silderLink'  ){
         		continue;
         	} else {
         		Setting::where('key',$key)->update(['value' => $value]);
         		
         	}
-        	
         }
-        exit;
+
+        foreach($request->silderImage as $img) {
+            echo  $img;
+            if(!empty($img)){
+
+            }
+
+          }   
+        exit;   
         return redirect($this->redirectTo)->with('message', 'Setting have been saved!');
 
     }
