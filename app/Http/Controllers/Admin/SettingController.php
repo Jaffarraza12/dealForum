@@ -45,7 +45,7 @@ class SettingController extends Controller
             return abort(401);
         }
          foreach ($request->all() as $key => $value) {
-            if($key == '_method' || $key == '_token' || $key == 'silderImage' || $key == 'silderTitle' ||  $key == 'silderLink'  ){
+            if($key == '_method' || $key == '_token' || $key == 'silderImage' || $key == 'silderTitle' ||  $key == 'silderLink' ||  $key == 'HelpAnswer' ||  $key == 'HelpQuestion'   ){
         		continue;
         	} else {
         		Setting::where('key',$key)->update(['value' => $value]);
@@ -73,7 +73,7 @@ class SettingController extends Controller
             if(!empty($question)){
                 $helpContent[] = array(
                     'question' => $question ,
-                    'answer' => $request->$answer[$i] ,
+                    'answer' => $request->$HelpAnswer[$i] ,
                     
                 ); 
             }
