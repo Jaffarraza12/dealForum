@@ -24,6 +24,19 @@
                 </p>
             </div>
             @endforeach
+            <div class="card-header">
+               Slider Setting
+            </div>
+            <div class="container">
+                <div class="row SliderContent">
+                    <div class="SliderItem">
+                        <div class="col-sm">Col</div>
+                        <div class="col-sm">Col</div>
+                        <div class="col-sm">Col</div>
+                    </div>
+                </div>
+            </div>
+            
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
             </div>
@@ -31,16 +44,6 @@
 
         </form>
 
-         <div class="card-header">
-           Slider Setting
-        </div>
-        <div class="row SliderContent">
-            <div class="SliderItem">
-                <div class="col">Col</div>
-                <div class="col">Col</div>
-                <div class="col">Col</div>
-            </div>
-        </div>
         
 
 
