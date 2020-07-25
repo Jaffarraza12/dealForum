@@ -49,9 +49,9 @@ class SettingController extends Controller
         	}
         }
         $i = 0;
+        $slider = array();
         foreach($request->silderImage as $img) {
-           
-            $slider = array();
+             
             if(!empty($img)){
                 $slider[] = array(
                     'title' => $request->silderTitle[$i] ,
@@ -60,10 +60,11 @@ class SettingController extends Controller
                 ); 
             }
 
-            print_r($slider);
-            echo json_encode($slider);
+          
 
           }   
+
+        echo json_encode($slider);
         exit;   
         return redirect($this->redirectTo)->with('message', 'Setting have been saved!');
 
