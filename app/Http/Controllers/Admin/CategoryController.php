@@ -208,7 +208,7 @@ class CategoryController extends Controller
 
          $slider =Setting::where('key','slider_content')->first();
 
-         $slider_content = $slider->value;
+         $slider_content = json_encode($slider->value);
 
          return response()
             ->json(compact('slider_content'));
@@ -219,7 +219,7 @@ class CategoryController extends Controller
 
          $help =Setting::where('key','help_content')->first();
 
-         $help_content = $help->value;
+         $help_content = json_encode($help->value);
 
          return response()
             ->json(compact('help_content'));
