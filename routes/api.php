@@ -15,8 +15,8 @@ Route::get('mailer', 'ContactController@mailer');
 Route::get('allCoupons/{customer}', 'CouponController@getCoupon');
 Route::get('chatting/{room}', 'ChatController@get');
 Route::get('chatrooms', 'ChatController@rooms');
-Route::get('sliders', 'Admin\HomeController@getSliders');
-Route::get('help', 'Admin\HomeController@getHelp');
+Route::get('sliders', 'Admin\CategoryController@getSliders');
+Route::get('help', 'Admin\CategoryController@getHelp');
 
 
 Route::post('customer', 'CustomerController@CustomerApi');

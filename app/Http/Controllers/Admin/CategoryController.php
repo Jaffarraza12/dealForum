@@ -10,6 +10,8 @@ use App\Http\Models\Language;
 use App\Http\Requests\Admin\StoreCategoryRequest;
 use App\Http\Requests\Admin\UpdateCategoryRequest;
 
+use App\Http\Models\Admin\Setting;
+
 use Illuminate\Support\Facades\Gate;
 
 class CategoryController extends Controller
@@ -198,6 +200,29 @@ class CategoryController extends Controller
             ->json(compact('category'));
 
 
+    }
+
+
+
+    public function getSliders(){
+
+         $slider =Setting::where('key','slider_content')->first();
+
+         $slider_content = $slider->value;
+
+         return response()
+            ->json(compact('slider_content'));
+    }
+
+
+     public function getHelp(){
+
+         $help =Setting::where('key','help_content')->first();
+
+         $help_content = $help->value;
+
+         return response()
+            ->json(compact('help_content'));
     }
 }
 
