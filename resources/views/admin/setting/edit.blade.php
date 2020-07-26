@@ -45,8 +45,8 @@
                 <div class="col-sm">
                     <div class="form-group">
                           <label>Image</label>
-                          <a ><img  data-input="input-image"  id="thumb-image" class="img-thumbnail"  width="100" height="auto" id="img-image"  src="{{  ($slider->image) ?   'https://deal-forum.com/asset'.$slider->image  : 'https://deal-forum.com/asset/Image/images.png' }}" alt="" title="" data-placeholder="{{ 'Image' }}" /></a>
-                         <input id="input-image" type="hidden" name="silderImage[]" value="{{$slider->image}}" />
+                          <a ><img  data-input="input-image-{{$i}}"  id="thumb-image-{{$i}}" class="img-thumbnail"  width="100" height="auto" id="img-image"  src="{{  ($slider->image) ?   'https://deal-forum.com/asset'.$slider->image  : 'https://deal-forum.com/asset/Image/images.png' }}" alt="" title="" data-placeholder="{{ 'Image' }}" /></a>
+                         <input id="input-image-{{$i}}" type="hidden" name="silderImage[]" value="{{$slider->image}}" />
                         </div>
                     </div>
                 <div class="col-sm">
