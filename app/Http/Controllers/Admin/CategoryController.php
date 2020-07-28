@@ -146,12 +146,16 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, $id)
     {
         //
-         if (! Gate::allows('users_manage')) {
+
+        echo $request->image;
+        exit;
+
+        if (! Gate::allows('users_manage')) {
             return abort(401);
         }
         $category = Category::find($id);
-        $category->slug =  $request->slug; 
-        $category->image =  $request->image;
+        $category->slug = $request->slug; 
+        $category->image = $request->image;
         $category->icontype = (int) $request->icontype;
         $category->save();
         foreach ($request->name as $key => $value) {
