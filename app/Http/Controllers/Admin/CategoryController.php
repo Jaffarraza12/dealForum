@@ -147,8 +147,6 @@ class CategoryController extends Controller
     {
         //
 
-        echo $request->image;
-        exit;
 
         if (! Gate::allows('users_manage')) {
             return abort(401);
