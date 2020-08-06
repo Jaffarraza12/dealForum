@@ -96,15 +96,18 @@ class ChatController extends Controller
         $resp = json_decode($request->getContent(), true);
        
         $data = array();
-        $data['chatid'] = $resp['_id'];
-        $data['customer'] = $resp['user']['_id'];
-        $data['message'] = mb_strtolower($resp['text']);
-        $data['room'] = $room;
-        $data['chattimeat'] = $resp['createdAt'];
+
+        $chat = new Chat;
+        $chat->chatid = $resp['_id'];
+        $chat->customer = $resp['user']['_id'];
+        $chat->message = mb_strtolower($resp['text']);
+        $chat->room = $room;
+        $chat->chattimeat = $resp['createdAt'];
+        $chat->save();
 
 
 
-        echo $chat = Chat::create($data);
+        //echo $chat = Chat::create($data);
 
 
     }
