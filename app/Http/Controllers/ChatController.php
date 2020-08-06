@@ -98,11 +98,11 @@ class ChatController extends Controller
         $data = array();
         $data['chatid'] = $resp['_id'];
         $data['customer'] = $resp['user']['_id'];
-        $data['message'] = $resp['text'];
+        $data['message'] = mb_strtolower($resp['text']);
         $data['room'] = $room;
         $data['chattimeat'] = $resp['createdAt'];
 
-        
+
 
         echo $chat = Chat::create($data);
 
