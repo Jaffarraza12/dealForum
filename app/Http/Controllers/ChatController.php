@@ -100,7 +100,7 @@ class ChatController extends Controller
         $chat = new Chat;
         $chat->chatid = $resp['_id'];
         $chat->customer = $resp['user']['_id'];
-        $chat->message = mb_strtolower($resp['text']);
+        $chat->message = $resp['text'];
         $chat->room = $room;
         $chat->chattimeat = $resp['createdAt'];
         $chat->save();
