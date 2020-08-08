@@ -176,15 +176,13 @@ class CouponController extends Controller
 
     public function api(Request $request){
         $resp = json_decode($request->getContent(), true);
-        $start = date('Y-m-d').' 0:0:0';
+        $start = date('Y-m-d').' 00:00:00';
         $end = date('Y-m-d').' 23:59:59';
-        echo $start.'<br/>';
-        echo $end ;
-        exit;
+        
 
 
-        if(Coupon::where('customer',$resp['uid'])->count() == 3){
-             $fail = 'You have reached the limit for getting coupons.';   
+        if(Coupon::where('customer',$resp['uid'])->whereBetween('created_at',[$start,$end])->count() == 3){
+             $fail = 'You have reached the daily limit for getting more coupons.';   
              return  response()->json(compact('fail'));
         }
 
