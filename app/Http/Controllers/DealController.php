@@ -248,6 +248,8 @@ class DealController extends Controller
     function message(Request $request){
 
         $resp = json_decode($request->getContent(), true);
+        print_r($resp);
+        exit;
         $data = array();
         $data['customer'] = $resp['customer'];
         $data['deal'] = $resp['deal'];
