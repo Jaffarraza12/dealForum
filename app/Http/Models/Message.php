@@ -12,7 +12,7 @@ class Message extends Model
 
 
 
-     protected $fillable = ['title', 'message', 'deal','customer'];
+     protected $fillable = ['title', 'message', 'deal','customer','email'];
 
 
     

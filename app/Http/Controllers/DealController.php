@@ -254,6 +254,7 @@ class DealController extends Controller
         $data['deal'] = $resp['deal'];
         $data['message'] = $resp['message'];
         $data['title'] = $resp['title'];
+        $data['email'] = $resp['email'];
        
         
         $message = Message::create($data);
