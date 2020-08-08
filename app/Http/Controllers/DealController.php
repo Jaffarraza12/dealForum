@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Models\Deal;
 use App\Http\Models\Companies;
+use App\Http\Models\Message;
 use App\Http\Models\Rating;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\DealStoreRequest;
@@ -241,6 +242,24 @@ class DealController extends Controller
         $lastInsertedId = $rate->id; 
         return response()
             ->json(Rating::where('deal',$data['deal'])->avg('vote'));
+
+    }
+
+    function message(Request $request){
+
+        $resp = json_decode($request->getContent(), true);
+        $data = array();
+        $data['customer'] = $resp['customer'];
+        $data['deal'] = $resp['deal'];
+        $data['messsage'] = $resp['message'];
+        $data['title'] = $resp['title'];
+       
+        
+        $message = Message::create($data);
+        $lastInsertedId = $message->id; 
+        $success = true;
+        return response()
+            ->json(compact('success'));
 
     }
 }
