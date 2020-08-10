@@ -24,6 +24,10 @@ class UsersController extends Controller
         }
 
         $users = User::with('roles')->get();
+        $userId = $users->id; 
+        $structure = './../asset/comapnies/'.$userId;
+
+        mkdir($structure, 0777, true);
 
         return view('admin.users.index', compact('users'));
     }
