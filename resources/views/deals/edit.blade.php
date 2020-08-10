@@ -52,7 +52,7 @@
                  <select name="company" id="company" class="form-control select2" >
                     <option>Select Options</option>
                     @foreach($companies as $company)
-                        <option value="{{ $company->id }}" {{ (isset($deal->company_id) && $company->id == $deal->company_id) ? 'selected="selected"' : '') }}>{{ $company->name }}</option>
+                        <option value="{{ $company->id }}" {{ (isset($deal->company_id) && $company->id == $deal->company_id) ? 'selected="selected"' : '' }}>{{ $company->name }}</option>
                     @endforeach
                 </select>
                 @if($errors->has('company'))
