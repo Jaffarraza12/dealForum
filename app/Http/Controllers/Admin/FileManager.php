@@ -21,7 +21,7 @@ class FileManager extends Controller
             $this->HTTPS_CATALOG = 'http://localhost/carve/resources/catalog';
             $this->DIR_IMAGE = 'C:\xampp\htdocs\carve\resources\catalog';
         } else {
-            if (Gate::allows('users_manage') {
+            if (Gate::allows('users_manage')) {
                 $this->HTTPS_CATALOG = 'https://deal-forum.com/asset';
                 $this->DIR_IMAGE = '/home/dealforum/public_html/asset';
             } else {
