@@ -20,17 +20,19 @@ class FileManager extends Controller
         if($request->getHttpHost() == 'localhost') {
             $this->HTTPS_CATALOG = 'http://localhost/carve/resources/catalog';
             $this->DIR_IMAGE = 'C:\xampp\htdocs\carve\resources\catalog';
-        } 
-    }
-
-    public function index( Request $request) {
-        if (Gate::allows('users_manage')) {
+        } else {
+             if (Gate::allows('users_manage')) {
                 $this->HTTPS_CATALOG = 'https://deal-forum.com/asset';
                 $this->DIR_IMAGE = '/home/dealforum/public_html/asset';
             } else {
                $this->HTTPS_CATALOG = 'https://deal-forum.com/asset/users/'.Auth::user()->id;
                $this->DIR_IMAGE = '/home/dealforum/public_html/asset/users/'.Auth::user()->id;
             }
+        }
+    }
+
+    public function index( Request $request) {
+       
         $dir = '';
         $search = '';
         if ($request->dir) {
