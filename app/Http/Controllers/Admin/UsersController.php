@@ -24,10 +24,7 @@ class UsersController extends Controller
         }
 
         $users = User::with('roles')->get();
-        $userId = $users->id; 
-        $structure = './../asset/comapnies/'.$userId;
-
-        mkdir($structure, 0777, true);
+        
 
         return view('admin.users.index', compact('users'));
     }
@@ -60,6 +57,10 @@ class UsersController extends Controller
         }
         
         $user = User::create($request->all());
+        $userId = $users->id; 
+        $structure = './../asset/users/'.$userId;
+
+        mkdir($structure, 0777, true);
 
         foreach ($request->input('roles') as $role) {
             $user->assign($role);

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Gate;
+use Auth;
 use App;
 
 class FileManager extends Controller
@@ -19,8 +21,15 @@ class FileManager extends Controller
             $this->HTTPS_CATALOG = 'http://localhost/carve/resources/catalog';
             $this->DIR_IMAGE = 'C:\xampp\htdocs\carve\resources\catalog';
         } else {
-            $this->HTTPS_CATALOG = 'https://deal-forum.com/asset';
-            $this->DIR_IMAGE = '/home/dealforum/public_html/asset';
+            if (Gate::allows('users_manage') {
+                $this->HTTPS_CATALOG = 'https://deal-forum.com/asset';
+                $this->DIR_IMAGE = '/home/dealforum/public_html/asset';
+            } else {
+
+            $this->HTTPS_CATALOG = 'https://deal-forum.com/asset/users/'.Auth::user()->id;
+            $this->DIR_IMAGE = '/home/dealforum/public_html/asset/users/'.Auth::user()->id;
+
+            }
         }
     }
 
