@@ -20,8 +20,11 @@ class FileManager extends Controller
         if($request->getHttpHost() == 'localhost') {
             $this->HTTPS_CATALOG = 'http://localhost/carve/resources/catalog';
             $this->DIR_IMAGE = 'C:\xampp\htdocs\carve\resources\catalog';
-        } else {
-             if (Gate::allows('users_manage')) {
+        } 
+    }
+
+    public function index( Request $request) {
+        if (Gate::allows('users_manage')) {
                 $this->HTTPS_CATALOG = 'https://deal-forum.com/asset';
                 $this->DIR_IMAGE = '/home/dealforum/public_html/asset';
             } else {
@@ -29,10 +32,6 @@ class FileManager extends Controller
                $this->HTTPS_CATALOG = 'https://deal-forum.com/asset/users/'.lluminate\Support\Facades\Auth::user()->id;
                $this->DIR_IMAGE = '/home/dealforum/public_html/asset/users/'.lluminate\Support\Facades\Auth::user()->id;
             }
-        }
-    }
-
-    public function index( Request $request) {
        
         $dir = '';
         $search = '';
@@ -75,6 +74,14 @@ class FileManager extends Controller
     }
 
     public function upload(Request $request) {
+        if (Gate::allows('users_manage')) {
+                $this->HTTPS_CATALOG = 'https://deal-forum.com/asset';
+                $this->DIR_IMAGE = '/home/dealforum/public_html/asset';
+            } else {
+                
+               $this->HTTPS_CATALOG = 'https://deal-forum.com/asset/users/'.lluminate\Support\Facades\Auth::user()->id;
+               $this->DIR_IMAGE = '/home/dealforum/public_html/asset/users/'.lluminate\Support\Facades\Auth::user()->id;
+            }
         $json = array();
         if($request->hasFile('images')) {
             $allowedfileExtension = ['jpg','jpeg','png','gif','JPG','JPEG','PNG','GIF'];
@@ -109,6 +116,14 @@ class FileManager extends Controller
     }
 
     public function folder(Request $request) {
+        if (Gate::allows('users_manage')) {
+                $this->HTTPS_CATALOG = 'https://deal-forum.com/asset';
+                $this->DIR_IMAGE = '/home/dealforum/public_html/asset';
+            } else {
+                
+               $this->HTTPS_CATALOG = 'https://deal-forum.com/asset/users/'.lluminate\Support\Facades\Auth::user()->id;
+               $this->DIR_IMAGE = '/home/dealforum/public_html/asset/users/'.lluminate\Support\Facades\Auth::user()->id;
+            }
 
         $filepath = $this->DIR_IMAGE.'/';
         $url = '/file-manager';
@@ -142,6 +157,14 @@ class FileManager extends Controller
     }
 
     public function delete(Request $request) {
+        if (Gate::allows('users_manage')) {
+                $this->HTTPS_CATALOG = 'https://deal-forum.com/asset';
+                $this->DIR_IMAGE = '/home/dealforum/public_html/asset';
+            } else {
+                
+               $this->HTTPS_CATALOG = 'https://deal-forum.com/asset/users/'.lluminate\Support\Facades\Auth::user()->id;
+               $this->DIR_IMAGE = '/home/dealforum/public_html/asset/users/'.lluminate\Support\Facades\Auth::user()->id;
+            }
         $filepath = $this->DIR_IMAGE.'/';
         $url = '/file-manager';
         $error = false;
