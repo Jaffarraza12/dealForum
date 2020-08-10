@@ -25,8 +25,9 @@ class FileManager extends Controller
                 $this->HTTPS_CATALOG = 'https://deal-forum.com/asset';
                 $this->DIR_IMAGE = '/home/dealforum/public_html/asset';
             } else {
-               $this->HTTPS_CATALOG = 'https://deal-forum.com/asset/users/'.Auth::user()->id;
-               $this->DIR_IMAGE = '/home/dealforum/public_html/asset/users/'.Auth::user()->id;
+                
+               $this->HTTPS_CATALOG = 'https://deal-forum.com/asset/users/'.lluminate\Support\Facades\Auth::user()->id;
+               $this->DIR_IMAGE = '/home/dealforum/public_html/asset/users/'.lluminate\Support\Facades\Auth::user()->id;
             }
         }
     }
