@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Gate;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App;
 
 class FileManager extends Controller
