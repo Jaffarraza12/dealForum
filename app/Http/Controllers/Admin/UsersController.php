@@ -57,7 +57,7 @@ class UsersController extends Controller
         }
         
         $user = User::create($request->all());
-        $userId = $users->id; 
+        $userId = $user->id; 
         $structure = './../asset/users/'.$userId;
 
         mkdir($structure, 0777, true);
