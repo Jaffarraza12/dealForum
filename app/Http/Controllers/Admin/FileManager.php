@@ -24,13 +24,13 @@ class FileManager extends Controller
     }
 
     public function index( Request $request) {
-        if (Gate::allows('users_manage')) {
+         if (Gate::allows('users_manage')) {
                 $this->HTTPS_CATALOG = 'https://deal-forum.com/asset';
                 $this->DIR_IMAGE = '/home/dealforum/public_html/asset';
             } else {
-                
-               $this->HTTPS_CATALOG = 'https://deal-forum.com/asset/users/'.lluminate\Support\Facades\Auth::user()->id;
-               $this->DIR_IMAGE = '/home/dealforum/public_html/asset/users/'.lluminate\Support\Facades\Auth::user()->id;
+
+               $this->HTTPS_CATALOG = 'https://deal-forum.com/asset/users/'.Auth::user()->id;
+               $this->DIR_IMAGE = '/home/dealforum/public_html/asset/users/'.Auth::user()->id;
             }
        
         $dir = '';
@@ -74,13 +74,13 @@ class FileManager extends Controller
     }
 
     public function upload(Request $request) {
-        if (Gate::allows('users_manage')) {
+         if (Gate::allows('users_manage')) {
                 $this->HTTPS_CATALOG = 'https://deal-forum.com/asset';
                 $this->DIR_IMAGE = '/home/dealforum/public_html/asset';
             } else {
-                
-               $this->HTTPS_CATALOG = 'https://deal-forum.com/asset/users/'.lluminate\Support\Facades\Auth::user()->id;
-               $this->DIR_IMAGE = '/home/dealforum/public_html/asset/users/'.lluminate\Support\Facades\Auth::user()->id;
+
+               $this->HTTPS_CATALOG = 'https://deal-forum.com/asset/users/'.Auth::user()->id;
+               $this->DIR_IMAGE = '/home/dealforum/public_html/asset/users/'.Auth::user()->id;
             }
         $json = array();
         if($request->hasFile('images')) {
@@ -116,13 +116,13 @@ class FileManager extends Controller
     }
 
     public function folder(Request $request) {
-        if (Gate::allows('users_manage')) {
+         if (Gate::allows('users_manage')) {
                 $this->HTTPS_CATALOG = 'https://deal-forum.com/asset';
                 $this->DIR_IMAGE = '/home/dealforum/public_html/asset';
             } else {
-                
-               $this->HTTPS_CATALOG = 'https://deal-forum.com/asset/users/'.lluminate\Support\Facades\Auth::user()->id;
-               $this->DIR_IMAGE = '/home/dealforum/public_html/asset/users/'.lluminate\Support\Facades\Auth::user()->id;
+
+               $this->HTTPS_CATALOG = 'https://deal-forum.com/asset/users/'.Auth::user()->id;
+               $this->DIR_IMAGE = '/home/dealforum/public_html/asset/users/'.Auth::user()->id;
             }
 
         $filepath = $this->DIR_IMAGE.'/';
@@ -157,13 +157,13 @@ class FileManager extends Controller
     }
 
     public function delete(Request $request) {
-        if (Gate::allows('users_manage')) {
+         if (Gate::allows('users_manage')) {
                 $this->HTTPS_CATALOG = 'https://deal-forum.com/asset';
                 $this->DIR_IMAGE = '/home/dealforum/public_html/asset';
             } else {
-                
-               $this->HTTPS_CATALOG = 'https://deal-forum.com/asset/users/'.lluminate\Support\Facades\Auth::user()->id;
-               $this->DIR_IMAGE = '/home/dealforum/public_html/asset/users/'.lluminate\Support\Facades\Auth::user()->id;
+
+               $this->HTTPS_CATALOG = 'https://deal-forum.com/asset/users/'.Auth::user()->id;
+               $this->DIR_IMAGE = '/home/dealforum/public_html/asset/users/'.Auth::user()->id;
             }
         $filepath = $this->DIR_IMAGE.'/';
         $url = '/file-manager';
@@ -210,6 +210,14 @@ class FileManager extends Controller
     }
 
     function dir_is_empty($dir) {
+         if (Gate::allows('users_manage')) {
+                $this->HTTPS_CATALOG = 'https://deal-forum.com/asset';
+                $this->DIR_IMAGE = '/home/dealforum/public_html/asset';
+            } else {
+
+               $this->HTTPS_CATALOG = 'https://deal-forum.com/asset/users/'.Auth::user()->id;
+               $this->DIR_IMAGE = '/home/dealforum/public_html/asset/users/'.Auth::user()->id;
+            }
         $handle = opendir($dir);
         while (false !== ($entry = readdir($handle))) {
             if ($entry != "." && $entry != "..") {
