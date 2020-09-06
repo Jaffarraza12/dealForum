@@ -4,7 +4,7 @@
 	.gird{
 		background:#fff;
 		border:1px solid #0056ad;
-		border-radius:10%;
+		border-radius:10px;
 		padding:40px;
 		position: relative;
 
