@@ -9,8 +9,8 @@
 		position: relative;
 
 	}
-	.grid h2{
-		    text-transform: uppercase;
+	.gird h2{
+		  text-transform:uppercase;
   		  margin-bottom: 18px;
 	}
 	.fa{
@@ -57,7 +57,7 @@
             </div>
         </div>
     </div>
-    	<div class="row">   
+    	<div class="row" style="margin-top: 100px">   
            <div class="col-lg-6">
             <div class="gird">
             	<h2 >Messages</h2>
