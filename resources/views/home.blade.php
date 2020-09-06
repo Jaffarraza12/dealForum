@@ -5,7 +5,7 @@
 		background:#fff;
 		border:1px solid #0056ad;
 		border-radius:10px;
-		padding:40px;
+		padding:10px 40px;
 		position: relative;
 
 	}
@@ -22,7 +22,7 @@
 		    font-size: 48px;
     position: absolute;
     right: 45px;
-    bottom: 7px;
+    bottom:0px;
     color:#3f51b5;
 	}
 </style>
@@ -57,17 +57,29 @@
             </div>
         </div>
     </div>
-    	<div class="row" style="margin-top: 100px">   
+    	<div class="row" style="margin-top: 50px">   
            <div class="col-lg-6">
             <div class="gird">
             	<h2 >Messages</h2>
-            	
+            	<table>
+            		<tr>
+            			<td></td>	
+            			<td></td>	
+            			<td></td>	
+            		</tr>
+            	</table>
             </div>
         </div>
           <div class="col-lg-6">
             <div class="gird">
             	<h2 >Coupon </h2>
-            
+            	<table>
+            		<tr>
+            			<td></td>	
+            			<td></td>	
+            			<td></td>	
+            		</tr>
+            	</table>
             </div>
         </div>
 
