@@ -61,11 +61,11 @@
            <div class="col-lg-6">
             <div class="gird">
             	<h2 >Messages</h2>
-            	<table>
+            	<table class="table table-bordered table-striped">
             		<tr>
-            			<td></td>	
-            			<td></td>	
-            			<td></td>	
+            			<th>Title</th>	
+            			<th>Deal</th>	
+            			<th>View</th>	
             		</tr>
             	</table>
             </div>
@@ -73,11 +73,11 @@
           <div class="col-lg-6">
             <div class="gird">
             	<h2 >Coupon </h2>
-            	<table>
+            	<table class="table table-bordered table-striped">
             		<tr>
-            			<td></td>	
-            			<td></td>	
-            			<td></td>	
+            			<td>Customer</td>	
+            			<td>Deal</td>	
+            			<td>Discount</td>	
             		</tr>
             	</table>
             </div>
