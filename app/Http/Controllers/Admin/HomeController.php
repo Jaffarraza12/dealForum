@@ -39,7 +39,7 @@ class HomeController extends Controller
         $customer = Customer::where('id','>',0);
         $coupon = Coupon::join('customer','customer.id','coupon.customer')->join('deals','deals.id','coupon.deal');
 
-        $messages = Message::join('deals','deals.id','message.deal');
+        $messages = Message::select('customer.name AS customer,deals.name,deals.discount,deals.code')->join('deals','deals.id','message.deal');
 
 
        

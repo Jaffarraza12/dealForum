@@ -82,7 +82,7 @@
         </div>
           <div class="col-lg-6">
             <div class="gird">
-            	<h2 >Coupon </h2>
+            	<h2 >Coupons </h2>
             	<table class="table table-bordered table-striped">
             		<tr>
             			<td>Customer</td>	
@@ -92,9 +92,9 @@
             		</tr>
             		@foreach($coupons as $coupon)
             		<tr>
+            			<td>{{$coupon->customer}}</td>
             			<td>{{$coupon->name}}</td>
-            			<td>{{$coupon->name}}</td>
-            			<td>{{$coupon->discount}}</td>
+            			<td>{{$coupon->discount}}%</td>
             			<td>{{$coupon->code}}</td>
             		</tr>
             		@endforeach
