@@ -7,6 +7,7 @@
 		border-radius:10px;
 		padding:10px 40px;
 		position: relative;
+		margin:10px 0;
 
 	}
 	.gird h2{
@@ -32,7 +33,7 @@
             <div class="gird">
             	<h2>Companies</h2>
             	<i class="fa fa-building"></i>
-            	<div class="pull-right"> <span class="val">10</span></div>
+            	<div class="pull-right"> <span class="val">{{$companiesCount}}</span></div>
             </div>
         </div>
          <div class="col-lg-3">

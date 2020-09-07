@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use App\Http\Models\Admin\Setting;
+use App\Http\Models\Admin\Companies;
 
 
 class HomeController extends Controller
@@ -27,7 +29,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $companiesCount = Companies::where('status',0);
+
+       
+        if (!Gate::allows('users_manage')) { 
+            $companiesCount =  $companiesCount->count();
+        }
+
+        return view('home',compact('companiesCount'));
     }
 
 
