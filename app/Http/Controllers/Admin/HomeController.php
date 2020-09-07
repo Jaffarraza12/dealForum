@@ -37,7 +37,7 @@ class HomeController extends Controller
         $companiesCount = Companies::where('status',0);
         $dealCount = Deal::join('companies', 'deals.company_id', '=', 'companies.id');
         $customer = Customer::where('id','>',0);
-        $coupon = Coupon::select('customer.name AS `customer`',
+        $coupon = Coupon::select('customer.name AS customer',
             'deals.name','deals.discount',
             'deals.code')->join('customer','customer.id','coupon.customer')->join('deals','deals.id','coupon.deal');
 
