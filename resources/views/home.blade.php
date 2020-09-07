@@ -54,7 +54,7 @@
             <div class="gird">
             	<h2>Coupons</h2>
             	<i class="fa fa-percent"></i> 
-            	<div class="pull-right"><span class="val">20</span></div>
+            	<div class="pull-right"><span class="val">{{$couponCount}}</span></div>
             </div>
         </div>
     </div>
