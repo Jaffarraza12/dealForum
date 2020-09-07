@@ -50,9 +50,9 @@ class HomeController extends Controller
         if (!Gate::allows('users_manage')) { 
             $companiesCount  =  $companiesCount->where('user',Auth::user()->id);
             $dealCount = $dealCount->where('companies.user',Auth::user()->id);
-            $customer = $customer->whereIn('deal',function($qry){
+            /*$customer = $customer->whereIn('deal',function($qry){
                 $qry->select('deals.id')->from('deals')->join('companies','companies.id','=','deals.company_id')->where('companies.user',Auth::user()->id);   
-            });
+            });*/
             $coupon = $coupon->whereIn('deal',function($qry){
                 $qry->select('deals.id')->from('deals')->join('companies','companies.id','=','deals.company_id')->where('companies.user',Auth::user()->id);   
             });
