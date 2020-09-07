@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Models\Admin\Setting;
 use App\Http\Models\Companies;
+use Auth;
 
 
 class HomeController extends Controller
@@ -33,11 +34,11 @@ class HomeController extends Controller
 
        
         if (!Gate::allows('users_manage')) { 
-            $companiesCount =  $companiesCount->count();
+            
+            $companiesCount  =  $companiesCount->where('user',Auth::user()->id);
         }
-        print_r($companiesCount);
-        exit();
-
+        $companiesCount = $companiesCount->count();
+      
         return view('home',compact('companiesCount'));
     }
 
