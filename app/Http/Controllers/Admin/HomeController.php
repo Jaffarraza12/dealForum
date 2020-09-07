@@ -36,7 +36,6 @@ class HomeController extends Controller
     {
         $companiesCount = Companies::where('status',0);
         $dealCount = Deal::join('companies', 'deals.company_id', '=', 'companies.id');
-        $customer = Customer::where('id','>',0);
         $coupon = Coupon::select('customer.name AS customer',
             'deals.name','deals.discount',
             'coupon.code')->join('deals','deals.id','coupon.deal')->leftjoin('customer','customer.id','coupon.customer');
@@ -50,7 +49,7 @@ class HomeController extends Controller
         if (!Gate::allows('users_manage')) { 
             $companiesCount  =  $companiesCount->where('user',Auth::user()->id);
             $dealCount = $dealCount->where('companies.user',Auth::user()->id);
-            /*$customer = $customer->whereIn('deal',function($qry){
+            $customer = Coupon::join('customer','coupon.customer','customer.id')->whereIn('coupon.deal',function($qry){
                 $qry->select('deals.id')->from('deals')->join('companies','companies.id','=','deals.company_id')->where('companies.user',Auth::user()->id);   
             });*/
             $coupon = $coupon->whereIn('deal',function($qry){
@@ -59,6 +58,9 @@ class HomeController extends Controller
             $messages = $messages->whereIn('deal',function($qry){
                 $qry->select('deals.id')->from('deals')->join('companies','companies.id','=','deals.company_id')->where('companies.user',Auth::user()->id);   
             });
+        } else {
+            $customer = Customer::where('id','>',0);
+            
         }
         $companiesCount = $companiesCount->count();
         $dealCount = $dealCount->count();
