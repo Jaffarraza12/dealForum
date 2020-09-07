@@ -76,7 +76,7 @@
             			
             		</tr>
 
-            		@enforeach
+            		@endforeach;
             	</table>
             </div>
         </div>
