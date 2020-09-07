@@ -68,7 +68,7 @@
             			<th>Email</th>	
             			<th>Deal</th>	
             		</tr>
-            		@forach($message as $messages)
+            		@foreach($messages as $message)
             		<tr>
             			<td>{{$message->title}}</td>
             			<td>{{$message->email}}</td>
