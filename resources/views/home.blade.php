@@ -74,7 +74,7 @@
             			<td>{{$message->title}}</td>
             			<td>{{$message->email}}</td>
             			<td>{{$message->name}}</td>
-            			<td><a>View Message</a></td>
+            			<td><a class="ViewMessage" style="color:#0056ad">View Message</a></td>
             		</tr>
             		@endforeach
             	</table>
@@ -103,10 +103,25 @@
         </div>
 
     </div>
+    <div id="message" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
+</div>
 
 </div>
 @endsection
 @section('scripts')
 @parent
+<script >
+	$(document).ready(function(){
+		$('.ViewMessage').click(function(){
+			$('#message').modal('show')
+		});
+	});
+	
+</script>
 
 @endsection
