@@ -35,6 +35,8 @@ class HomeController extends Controller
         if (!Gate::allows('users_manage')) { 
             $companiesCount =  $companiesCount->count();
         }
+        print_r($companiesCount);
+        exit();
 
         return view('home',compact('companiesCount'));
     }
