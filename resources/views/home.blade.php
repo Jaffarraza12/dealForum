@@ -67,15 +67,15 @@
             			<th>Title</th>	
             			<th>Email</th>	
             			<th>Deal</th>	
+            			<th></th>	
             		</tr>
             		@foreach($messages as $message)
             		<tr>
             			<td>{{$message->title}}</td>
             			<td>{{$message->email}}</td>
             			<td>{{$message->name}}</td>
-            			
+            			<td><a>View Message</a></td>
             		</tr>
-
             		@endforeach
             	</table>
             </div>
@@ -87,8 +87,17 @@
             		<tr>
             			<td>Customer</td>	
             			<td>Deal</td>	
-            			<td>Discount</td>	
+            			<td>Discount</td>
+            			<td>Code</td>
             		</tr>
+            		@foreach($coupons as $coupon)
+            		<tr>
+            			<td>{{$coupon->name}}</td>
+            			<td>{{$coupon->name}}</td>
+            			<td>{{$coupon->discount}}</td>
+            			<td>{{$coupon->code}}</td>
+            		</tr>
+            		@endforeach
             	</table>
             </div>
         </div>
