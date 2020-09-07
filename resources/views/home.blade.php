@@ -47,7 +47,7 @@
             <div class="gird">
             	<h2>Customer</h2>
             	<i class="fa fa-user"></i>
-            	<div class="pull-right"> <span class="val">20</span></div>
+            	<div class="pull-right"> <span class="val">{{$customerCount}}</span></div>
             </div>
         </div>
          <div class="col-lg-3">
