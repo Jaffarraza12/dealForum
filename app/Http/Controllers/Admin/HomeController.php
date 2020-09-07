@@ -39,7 +39,7 @@ class HomeController extends Controller
         $customer = Customer::where('id','>',0);
         $coupon = Coupon::join('customer','customer.id','coupon.customer')->join('deals','deals.id','coupon.deal');
 
-        $messages = Message::join('deals','deals.id','coupon.deal');
+        $messages = Message::join('deals','deals.id','message.deal');
 
 
        
@@ -61,7 +61,7 @@ class HomeController extends Controller
         $customerCount = $customer->count();
         $couponCount = $coupon->count();
         $coupons = $coupon->get();
-        $messages = $messages->orderby('message.id','desc')->limit(10)->get();
+        $messages = $messages->orderby('message.id','desc')->limit(10);
       
         return view('home',compact('companiesCount','dealCount','customerCount','couponCount',
             'messages','coupons'));
