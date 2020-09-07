@@ -41,7 +41,9 @@ class HomeController extends Controller
             'deals.name','deals.discount',
             'coupon.code')->join('deals','deals.id','coupon.deal')->leftjoin('customer','customer.id','coupon.customer');
 
-        $messages = Message::join('deals','deals.id','message.deal');
+        $messages = Message::select('message.title',
+            'deals.name','message.id',
+            'message.email','messsage.message')->join('deals','deals.id','message.deal');
 
 
        
