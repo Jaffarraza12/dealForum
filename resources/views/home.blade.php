@@ -74,7 +74,9 @@
             			<td>{{$message->title}}</td>
             			<td>{{$message->email}}</td>
             			<td>{{$message->name}}</td>
-            			<td><a data-id="{{$message-id}}" class="ViewMessage" style="color:#0056ad;cursor:pointer;">View Message</a></td>
+            			<td><a data-id="{{$message->id}}" data-email="{{$message->email}}" 
+            				data-title="{{$message->title}}" data-message="{{$message->message}}"
+            				class="ViewMessage" style="color:#0056ad;cursor:pointer;">View Message</a></td>
             		</tr>
             		@endforeach
             	</table>
