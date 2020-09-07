@@ -74,7 +74,7 @@
             			<td>{{$message->title}}</td>
             			<td>{{$message->email}}</td>
             			<td>{{$message->name}}</td>
-            			<td><a class="ViewMessage" style="color:#0056ad;cursor:pointer;">View Message</a></td>
+            			<td><a data-id="{{$message-id}}" class="ViewMessage" style="color:#0056ad;cursor:pointer;">View Message</a></td>
             		</tr>
             		@endforeach
             	</table>
@@ -114,14 +114,15 @@
       </div>
       <div class="modal-body">
         <div class="col-lg-6"><h5>Title:</h5></div>
-        <div class="col-lg-6">asdasdasd</div>
+        <div class="col-lg-6"><span id="messageTitle"></span></div>
 		<hr>
 		<div class="col-lg-6"><h5>Email:</h5></div>
-        <div class="col-lg-6">@ha.com</div>
+        <div class="col-lg-6"><span id="messageEmail"></span></div>
 		<hr>
-		<h5>Message</h5>
-		<p> have tooltips on hover.</p>
-
+		<div class="col-lg-12">
+			<h5>Message</h5>
+			<p id='messageText'> have tooltips on hover.</p>
+		</div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -139,6 +140,15 @@
 <script >
 	$(document).ready(function(){
 		$('.ViewMessage').click(function(){
+			id = $(this).data('id')
+			$.ajax({
+			  url: '/view-message/'+id,
+			  success: function(resp){
+			  	console.log(resp)
+
+			  }
+			});
+
 			$('#message').modal('show')
 		});
 	});

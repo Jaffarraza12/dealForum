@@ -40,5 +40,8 @@ Route::delete('coupon/massdestroy', 'CouponController@massDestroy')->name('coupo
 
 
  Route::get('coupon-deal', 'CouponController@deal')->name('coupon.deal')->middleware('auth');
+
+
+ Route::get('view-message/{id}', 'DealController@ViewMessage');
    
 

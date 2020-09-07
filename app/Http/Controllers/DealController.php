@@ -264,4 +264,15 @@ class DealController extends Controller
             ->json(compact('success'));
 
     }
+
+
+    function ViewMessage($id){
+ 
+        $message = Message::where('id',$id)->get();
+        $lastInsertedId = $message->id; 
+        $success = true;
+        return response()
+            ->json(compact('success','message'));
+
+    }
 }
