@@ -40,7 +40,7 @@
             <div class="gird">
             	<h2>Deals</h2>
             	<i class="fa fa-tag"></i> 
-            	<div class="pull-right"><span class="val">20</span> </div>
+            	<div class="pull-right"><span class="val">{{$dealCount}}</span> </div>
             </div>
         </div>
          <div class="col-lg-3">
