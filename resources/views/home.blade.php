@@ -92,7 +92,7 @@
             		</tr>
             		@foreach($coupons as $coupon)
             		<tr>
-            			<td>{{$coupon->customer}}</td>
+            			<td>{{$coupon->customer ?? 'Not Assigned' }} </td>
             			<td>{{$coupon->name}}</td>
             			<td>{{$coupon->discount}}%</td>
             			<td>{{$coupon->code}}</td>
