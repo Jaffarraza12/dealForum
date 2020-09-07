@@ -7,7 +7,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Models\Admin\Setting;
-use App\Http\Models\Admin\Companies;
+use App\Http\Models\Companies;
 
 
 class HomeController extends Controller
