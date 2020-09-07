@@ -61,7 +61,7 @@ class HomeController extends Controller
         $customerCount = $customer->count();
         $couponCount = $coupon->count();
         $coupons = $coupon->get();
-        $messages = $messages->orderby('message.id','desc')->limit(10);
+        $messages = $messages->orderby('message.id','desc')->limit(10)->get();
       
         return view('home',compact('companiesCount','dealCount','customerCount','couponCount',
             'messages','coupons'));
