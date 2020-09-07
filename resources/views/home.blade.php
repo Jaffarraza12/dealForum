@@ -74,7 +74,7 @@
             			<td>{{$message->title}}</td>
             			<td>{{$message->email}}</td>
             			<td>{{$message->name}}</td>
-            			<td><a class="ViewMessage" style="color:#0056ad">View Message</a></td>
+            			<td><a class="ViewMessage" style="color:#0056ad;cursor:pointer;">View Message</a></td>
             		</tr>
             		@endforeach
             	</table>
@@ -106,8 +106,29 @@
     <div id="message" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-      ...
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">View Message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-lg-6"><h5>Title:</h5></div>
+        <div class="col-lg-6">asdasdasd</div>
+		<hr>
+		<div class="col-lg-6"><h5>Email:</h5></div>
+        <div class="col-lg-6">@ha.com</div>
+		<hr>
+		<h5>Message</h5>
+		<p> have tooltips on hover.</p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
     </div>
+  </div>
   </div>
 </div>
 
