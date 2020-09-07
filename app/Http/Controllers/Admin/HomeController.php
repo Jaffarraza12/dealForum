@@ -43,7 +43,7 @@ class HomeController extends Controller
 
         $messages = Message::select('message.title',
             'deals.name','message.id',
-            'message.email','messsage.message')->join('deals','deals.id','message.deal');
+            'message.email','message.message')->join('deals','deals.id','message.deal');
 
 
        

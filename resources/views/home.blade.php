@@ -141,14 +141,20 @@
 	$(document).ready(function(){
 		$('.ViewMessage').click(function(){
 			id = $(this).data('id')
-			$.ajax({
+			title = $(this).data('title')
+			message = $(this).data('message')
+			email = $(this).data('email')
+			$('#messageTitle').html(title)
+			$('#messageEmail').html(email)
+			$('#messageText').html(message)
+			/*$.ajax({
 			  url: '/view-message/'+id,
 			  success: function(resp){
 			  	console.log(resp)
 
 			  }
 			});
-
+*/
 			$('#message').modal('show')
 		});
 	});
