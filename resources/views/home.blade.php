@@ -58,16 +58,25 @@
             </div>
         </div>
     </div>
-    	<div class="row" style="margin-top: 50px">   
+    	<div class="row" style="margin-top:20px">   
            <div class="col-lg-6">
             <div class="gird">
             	<h2 >Messages</h2>
             	<table class="table table-bordered table-striped">
             		<tr>
             			<th>Title</th>	
+            			<th>Email</th>	
             			<th>Deal</th>	
-            			<th>View</th>	
             		</tr>
+            		@forach($messages as $message)
+            		<tr>
+            			<td>{{$message->title}}</td>
+            			<td>{{$message->email}}</td>
+            			<td>{{$message->name}}</td>
+            			
+            		</tr>
+
+            		@enforeach
             	</table>
             </div>
         </div>
