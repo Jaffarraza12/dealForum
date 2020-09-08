@@ -57,9 +57,15 @@
         .nav-link.active{
                 background: #074484;
         }
+        .nav-item{
+            position: relative;
+        }
 
          .nav-item .nav-dropdown-items{
         display:none;
+            position: absolute;
+        left: -40px;
+        width: 205px;
     }
 
     </style>
