@@ -15,10 +15,11 @@
     overflow-y:scroll;
 
   }
-  .user{margin:5px 0px;}
+  .user{margin:5px 0px;color:#0056ad;}
   .chatBox{
     margin:5px 0px;
   }
+  .bold{font-weight:bold;}
 </style>
 <div class="card">
     <div class="card-header">
@@ -29,7 +30,7 @@
               <select class="custom-select" id="inputGroupSelect01">
                 
                   @foreach($rooms as $room)
-                    <option {{($roomId == $room->id) ? 'selected' ? ''}} value="{{$room->id}}">{{$room->name}}</option>
+                    <option {{($roomId == $room->id) ? 'selected' }} value="{{$room->id}}">{{$room->name}}</option>
                   @endforeach
                 </select>
             </div>
@@ -42,7 +43,7 @@
             <div class="col-lg-8">
               <div class="chatBox">
                   @foreach($chatMessages as $message)
-                      <div> <span class="font-bold">{{$message->name}}:</span> {{$message->message}}</div>
+                      <div> <span class="bold">{{$message->name}}:</span> {{$message->message}}</div>
 
                   @endforeach
 
@@ -56,7 +57,7 @@
                 </div>
                 <div class="card-body">
                   @foreach($users as $user)
-                    <a class="user">{{$user->name}} ({{($user->status == 1) ? 'active' : 'block'  }})</a><br/>
+                    <a class="user" >{{$user->name}} ({{($user->status == 1) ? 'active' : 'block'  }})</a><br/>
                   @endforeach
                 </div>
               </div>
