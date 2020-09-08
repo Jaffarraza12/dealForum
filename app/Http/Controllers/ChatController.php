@@ -122,7 +122,14 @@ class ChatController extends Controller
     }
 
 
-    public function changeStatus(Request $request,$room){
+    public function changeStatus(Request $request){
+
+        Chatuser::where('room', $request->room)
+          ->where('customer', $request->customer)
+          ->update(['status' => $request->status]);
+
+         $success = true;  
+        return response()->json(compact('success'));
 
 
 

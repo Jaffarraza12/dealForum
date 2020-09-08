@@ -29,7 +29,7 @@
         <div class="row h-100">
            <div class="col-sm-12 my-auto">
              <div class="card card-block w-25">
-              <select class="room-select" id="inputGroupSelect01">
+              <select class="room-select" id="inputRoom">
                 
                   @foreach($rooms as $room)
                     <option {{($roomId == $room->id) ? 'selected' : '' }} value="{{$room->id}}">{{$room->name}}</option>
@@ -58,6 +58,8 @@
 
                 </div>
                 <div class="card-body">
+                  <input type="hidden" name="customer" id="customer" value="" >
+
                   @foreach($users as $user)
                     <a class="user" data-status="{{$user->status}}" data-name="{{$user->name}}" data-id="{{$user->id}}">{{$user->name}} ({{($user->status == 1) ? 'active' : 'block'  }})</a><br/>
                   @endforeach
@@ -125,6 +127,20 @@
 
 
       $('.BtnStatus').click(function(){
+          sta = $(this).data('status')
+
+          $.ajax({
+              url: '/public/api/customer-status',
+              type:'POST'
+              data : {room:$('#inputRoom').val(),status:sta,customer:$('#customer').val()}
+              success: function(resp){
+                console.log(resp)
+                if(resp.success){
+                  window.location.href=window.location.href = '/public/chats/'+$('#inputRoom').val() 
+                }
+
+              }
+            });
 
       })
 
