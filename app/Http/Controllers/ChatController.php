@@ -26,7 +26,7 @@ class ChatController extends Controller
 
     public function index($room){
           $rooms = Chatroom::get();
-          $chatMessages = =Chat::join('customer','customer.id','chatbox.customer')->where('room',$room)->get();
+          $chatMessages = Chat::join('customer','customer.id','chatbox.customer')->where('room',$room)->get();
           $users = Chatuser::join('customer','customer.id','chatuser.customer')->get();
           return view('chat.index',compact('rooms','chatMessages','users'));
     }
