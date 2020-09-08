@@ -15,11 +15,12 @@
     overflow-y:scroll;
 
   }
-  .user{margin:5px 0px;color:#0056ad;}
+  .user{margin:5px 0px;color:#0056ad !important;cursor: pointer;}
   .chatBox{
     margin:5px 0px;
   }
   .bold{font-weight:bold;}
+  .chatID{margin: 3px 0; }
 </style>
 <div class="card">
     <div class="card-header">
@@ -43,7 +44,7 @@
             <div class="col-lg-8">
               <div class="chatBox">
                   @foreach($chatMessages as $message)
-                      <div> <span class="bold">{{$message->name}}:</span> {{$message->message}}</div>
+                      <div class="chatID"> <span class="bold">{{$message->name}}:</span> {{$message->message}}</div>
 
                   @endforeach
 
@@ -57,7 +58,7 @@
                 </div>
                 <div class="card-body">
                   @foreach($users as $user)
-                    <a class="user" >{{$user->name}} ({{($user->status == 1) ? 'active' : 'block'  }})</a><br/>
+                    <a class="user" data-status="{{$user->status}}" data-name="{{$user->name}}" data-id="{{$user->id}}">{{$user->name}} ({{($user->status == 1) ? 'active' : 'block'  }})</a><br/>
                   @endforeach
                 </div>
               </div>
@@ -65,6 +66,28 @@
 
             
         </div>
+
+        <div id="modal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">User Status</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div><span>Id</span><span id="customerId"></span>.</div>
+        <div><span>Name </span><span id="customerName"></span>.</div>
+      </div>
+      <div class="modal-footer">
+        <button id="room-status-active" type="button" class="btn btn-primary">Active</button>
+        <button id="room-status-block" type="button" class="btn btn-danger">Block from This Room</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     </div>
 </div>
@@ -75,6 +98,26 @@
     $(function () {
       $('.room-select').change(function(){
           window.location.href = '/public/chats/'+$(this).val()
+      });
+
+      $('.user').click(function(){
+          Id = $(this).data('id')   
+          name = $(this).data('name')   
+          status = $(this).data('status')   
+          if(status == 2){
+              $('#room-status-active').show()
+              $('#room-status-block').hide()
+          } else {
+            $('#room-status-active').hide()
+              $('#room-status-block').show()
+
+          }
+          $('#customerId').html(Id)
+          $('#customerName').html(name)
+
+
+          $('#modal').modal('show')
+
       });
 
 
