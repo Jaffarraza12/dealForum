@@ -121,4 +121,11 @@ class ChatController extends Controller
 
     }
 
+
+    public function apiPost(Request $request,$room){
+
+
+        
+    }
+
 }

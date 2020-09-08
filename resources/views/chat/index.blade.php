@@ -19,6 +19,7 @@
   .chatBox{
     margin:5px 0px;
   }
+  .modal-dialog{max-width: 350px;}
   .bold{font-weight:bold;}
   .chatID{margin: 3px 0; }
 </style>
@@ -71,18 +72,18 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">User Status</h5>
+        <h5 class="modal-title">User Status is <span class="Ustatus"></span></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <div><span>Id</span><span id="customerId"></span>.</div>
-        <div><span>Name </span><span id="customerName"></span>.</div>
+        <div><span class="bold">Id:</span><span id="customerId"></span>.</div>
+        <div><span class="bold">Name : </span><span id="customerName"></span>.</div>
       </div>
       <div class="modal-footer">
-        <button id="room-status-active" type="button" class="btn btn-primary">Active</button>
-        <button id="room-status-block" type="button" class="btn btn-danger">Block from This Room</button>
+        <button id="room-status-active" data-status="2" type="button" class="btn btn-primary BtnStatus">Active</button>
+        <button id="room-status-block" data-status="2" type="button" class="btn btn-danger BtnStatus">Block from This Room</button> 
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -105,11 +106,13 @@
           name = $(this).data('name')   
           status = $(this).data('status')   
           if(status == 2){
+              $('.Ustatus').html('Block')
               $('#room-status-active').show()
               $('#room-status-block').hide()
           } else {
-            $('#room-status-active').hide()
-              $('#room-status-block').show()
+             $('.Ustatus').html('Active')
+             $('#room-status-active').hide()
+             $('#room-status-block').show()
 
           }
           $('#customerId').html(Id)
@@ -119,6 +122,11 @@
           $('#modal').modal('show')
 
       });
+
+
+      $('.BtnStatus').click(function(){
+
+      })
 
 
 
