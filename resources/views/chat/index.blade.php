@@ -133,17 +133,18 @@
           cust = $('#customer').val() 
 
           $.ajax({
+              method: "POST",
               url: '/public/api/customer-status',
-              type:'POST'
+              method: "POST",
               data : {room:room,status:sta,customer:cust}
-              success: function(resp){
-                console.log(resp)
+            }).done(function( resp ) {
+               console.log(resp)
                 if(resp.success){
                   window.location.href=window.location.href = '/public/chats/'+$('#inputRoom').val() 
                 }
 
-              }
-            });
+              })
+
 
       })
 
