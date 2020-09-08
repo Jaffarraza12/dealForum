@@ -14,6 +14,10 @@
     overflow: hidden;
 
   }
+  .user{margin:5px 0px;}
+  .chatBox{
+    margin:5px 0px;
+  }
 </style>
 <div class="card">
     <div class="card-header">
@@ -34,7 +38,7 @@
 
     <div class="card-body">
         <div class="table-responsive">
-            <div class="col-lg-8"+
+            <div class="col-lg-8">
               <div class="chatBox">
                   @foreach($chatMessages as $message)
                       <div> <span class="font-bold">{{$message->name}}:</span> {{$message->message}}</div>
@@ -51,7 +55,7 @@
                 </div>
                 <div class="card-body">
                   @foreach($users as $user)
-                    <a>{{$user->name}} ({{($user->status == 1) ? 'active' : 'block'  }})</a>
+                    <a class="user">{{$user->name}} ({{($user->status == 1) ? 'active' : 'block'  }})</a><br/>
                   @endforeach
                 </div>
               </div>
