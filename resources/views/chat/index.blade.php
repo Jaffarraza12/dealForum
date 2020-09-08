@@ -84,7 +84,7 @@
         <div><span class="bold">Name : </span><span id="customerName"></span>.</div>
       </div>
       <div class="modal-footer">
-        <button id="room-status-active" data-status="2" type="button" class="btn btn-primary BtnStatus">Active</button>
+        <button id="room-status-active" data-status="1" type="button" class="btn btn-primary BtnStatus">Active</button>
         <button id="room-status-block" data-status="2" type="button" class="btn btn-danger BtnStatus">Block from This Room</button> 
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
