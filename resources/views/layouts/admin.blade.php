@@ -58,6 +58,10 @@
                 background: #074484;
         }
 
+         .nav-item .nav-dropdown-items{
+        display:none;
+    }
+
     </style>
     @yield('styles')
 </head>
@@ -261,6 +265,13 @@ $(function(){
             $('.filemanager').attr('src',serverPath+'?elem='+elem+'&show='+show+'&multiple='+multiple)
             $('#jr_modal').modal('show')
         });
+
+
+         $(".nav-item").hover(function(){
+            $(this).find('nav-dropdown-items').show()
+         },function(){
+             $(".nav-item .nav-dropdown-items").hide()
+         })
        }) 
 
     </script>

@@ -1,3 +1,8 @@
+<style >
+    .nav-item .nav-item nav-dropdown{
+        display:none;
+    }
+</style>
 <div class="sidebar">
     <nav class="sidebar-nav">
 
@@ -90,7 +95,7 @@
                     Settings
                 </a>
                 <ul class="nav-dropdown-items">
-                    <li class="nav-item"> <a href="public/chats/1" class="nav-link {{ request()->is('setting') ? 'active' : '' }}">
+                    <li class="nav-item"> <a href="/public/chats/1" class="nav-link {{ request()->is('setting') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-fw fa-chat">
 
                     </i>
