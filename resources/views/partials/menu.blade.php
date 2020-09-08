@@ -1,7 +1,5 @@
 <style >
-    .nav-item .nav-item nav-dropdown{
-        display:none;
-    }
+
 </style>
 <div class="sidebar">
     <nav class="sidebar-nav">
@@ -75,7 +73,7 @@
                                 {{ trans('cruds.role.title') }}
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" style="display: none;">
                             <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
                                 <i class="fa-fw fas fa-user nav-icon">
 
@@ -96,7 +94,7 @@
                 </a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item"> <a href="/public/chats/1" class="nav-link {{ request()->is('setting') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-fw fa-chat">
+                    <i class="nav-icon fas fa-fw fa-comment">
 
                     </i>
                     Chatting Module

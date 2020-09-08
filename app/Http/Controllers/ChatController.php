@@ -25,6 +25,9 @@ class ChatController extends Controller
 
 
     public function index($room){
+          if(!Gate::allows(['users_manage'])) {
+            return abort(401);
+          }
           $rooms = Chatroom::get();
           $chatMessages = Chat::join('customer','customer.id','chatbox.customer')->where('room',$room)->get();
           $users = Chatuser::select('customer.name','customer.email','customer.id','chatuser.status')->join('customer','customer.id','chatuser.customer')->where('room',$room)->get();
