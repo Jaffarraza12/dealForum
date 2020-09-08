@@ -12,6 +12,7 @@
     background:#fff;
     min-height: 400px;
     overflow: hidden;
+    overflow-y:scroll;
 
   }
   .user{margin:5px 0px;}
@@ -26,9 +27,9 @@
            <div class="col-sm-12 my-auto">
              <div class="card card-block w-25">
               <select class="custom-select" id="inputGroupSelect01">
-                  <option selected>Rooms</option>
+                
                   @foreach($rooms as $room)
-                    <option value="{{$room->id}}">{{$room->name}}</option>
+                    <option {{($roomId == $room->id) ? 'selected' ? ''}} value="{{$room->id}}">{{$room->name}}</option>
                   @endforeach
                 </select>
             </div>
