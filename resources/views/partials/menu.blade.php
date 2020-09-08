@@ -89,6 +89,14 @@
                     </i>
                     Settings
                 </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item"> <a href="public/chats/1" class="nav-link {{ request()->is('setting') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-fw fa-chat">
+
+                    </i>
+                    Chatting Module
+                </a></li>
+                </ul>    
             </li>
             @endcan
             <li class="nav-item">
