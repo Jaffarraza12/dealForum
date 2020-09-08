@@ -27,7 +27,7 @@
         <div class="row h-100">
            <div class="col-sm-12 my-auto">
              <div class="card card-block w-25">
-              <select class="custom-select" id="inputGroupSelect01">
+              <select class="room-select" id="inputGroupSelect01">
                 
                   @foreach($rooms as $room)
                     <option {{($roomId == $room->id) ? 'selected' }} value="{{$room->id}}">{{$room->name}}</option>
@@ -73,6 +73,12 @@
 @parent
 <script>
     $(function () {
+      $('.room-select').change(function(){
+          window.location.href = '/public/chats/'+$(this).val()
+      });
+
+
+
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {  
