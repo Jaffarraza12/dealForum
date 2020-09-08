@@ -268,7 +268,7 @@ $(function(){
 
 
          $(".nav-item").mouseenter(function() {
-            $(this).find('nav-dropdown-items').show()
+            $(this).find('.nav-dropdown-items').show()
          }).mouseleave(function() {
             $(".nav-item .nav-dropdown-items").hide()
           });
