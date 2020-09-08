@@ -122,10 +122,10 @@ class ChatController extends Controller
     }
 
 
-    public function apiPost(Request $request,$room){
+    public function changeStatus(Request $request,$room){
 
 
-        
+
     }
 
 }
