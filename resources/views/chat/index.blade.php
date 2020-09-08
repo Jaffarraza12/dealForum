@@ -118,6 +118,7 @@
 
           }
           $('#customerId').html(Id)
+          $('#customer').val(Id)
           $('#customerName').html(name)
 
 
@@ -128,11 +129,13 @@
 
       $('.BtnStatus').click(function(){
           sta = $(this).data('status')
+          room = $('#inputRoom').val()
+          cust = $('#customer').val() 
 
           $.ajax({
               url: '/public/api/customer-status',
               type:'POST'
-              data : {room:$('#inputRoom').val(),status:sta,customer:$('#customer').val()}
+              data : {room:room,status:sta,customer:cust}
               success: function(resp){
                 console.log(resp)
                 if(resp.success){
