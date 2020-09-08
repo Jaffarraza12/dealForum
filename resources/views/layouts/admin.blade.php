@@ -267,12 +267,16 @@ $(function(){
         });
 
 
-         $(".nav-item").hover(function(){
+         $(".nav-item").mouseenter(function() {
             $(this).find('nav-dropdown-items').show()
-         },function(){
-             $(".nav-item .nav-dropdown-items").hide()
-         })
-       }) 
+         }).mouseleave(function() {
+            $(".nav-item .nav-dropdown-items").hide()
+          });
+
+
+
+
+     }); 
 
     </script>
     @yield('scripts')
