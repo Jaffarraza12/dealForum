@@ -30,7 +30,7 @@
               <select class="room-select" id="inputGroupSelect01">
                 
                   @foreach($rooms as $room)
-                    <option {{($roomId == $room->id) ? 'selected' }} value="{{$room->id}}">{{$room->name}}</option>
+                    <option {{($roomId == $room->id) ? 'selected' : '' }} value="{{$room->id}}">{{$room->name}}</option>
                   @endforeach
                 </select>
             </div>
