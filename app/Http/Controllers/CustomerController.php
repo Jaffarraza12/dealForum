@@ -111,7 +111,7 @@ class CustomerController extends Controller
         $data['goid'] = 0;
         
 
-
+        echo $data['email'];
         if(!$this->emailValidate($data['email'])){
             $failed = "Email is invalid";
              return response()
