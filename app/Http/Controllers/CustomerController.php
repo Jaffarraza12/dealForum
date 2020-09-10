@@ -209,10 +209,12 @@ class CustomerController extends Controller
 
 
      private function emailValidate($email){
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-          return false;
+
+        echo $email;
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+          return true;
         }
-        return true;
+        return false;
     }
 
     private function validateNumber($phone){
