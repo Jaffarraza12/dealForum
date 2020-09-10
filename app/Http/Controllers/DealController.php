@@ -256,6 +256,13 @@ class DealController extends Controller
         $data['title'] = $resp['title'];
         $data['email'] = $resp['email'];
        
+        if(!$this->emailValidate($data['email'])){
+            $failed = "Email is invalid";
+             return response()
+            ->json(compact('failed'));
+
+        }
+
         
         $message = Message::create($data);
         $lastInsertedId = $message->id; 
@@ -273,6 +280,24 @@ class DealController extends Controller
         $success = true;
         return response()
             ->json(compact('success','message'));
+
+    }
+
+      private function emailValidate($email){
+
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+          return true;
+        }
+        return false;
+    }
+
+    private function validateNumber($phone){
+        $re = '/^([0]|[+])(\d{9}|\d{10}|\d{13})$/m';
+
+        if(preg_match($re,$phone)) {
+            return true;
+        }
+        return false;
 
     }
 }
