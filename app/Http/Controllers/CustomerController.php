@@ -111,20 +111,7 @@ class CustomerController extends Controller
         $data['goid'] = 0;
         
 
-        if(!$this->emailValidate($data['email'])){
-            $failed = "Email is invalid";
-             return response()
-            ->json(compact('failed'));
-
-        }
-
-
-        if(!$this->validateNumber($data['phone'])){
-            $failed = "Invalid Mobile Number";
-             return response()
-            ->json(compact('failed'));
-
-        }
+        
 
 
 
@@ -134,6 +121,21 @@ class CustomerController extends Controller
             
              
             return response()
+            ->json(compact('failed'));
+
+        }
+
+        if(!$this->emailValidate($data['email'])){
+            $failed = "Email is invalid";
+             return response()
+            ->json(compact('failed'));
+
+        }
+
+
+        if(!$this->validateNumber($data['phone'])){
+            $failed = "Mobile number is invalid";
+             return response()
             ->json(compact('failed'));
 
         }
