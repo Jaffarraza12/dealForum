@@ -88,7 +88,7 @@ class ContactController extends Controller
 
 
     private function emailValidate($email){
-        $mail = test_input(($email);
+        $mail = test_input($email);
         if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
           return false;
         }
