@@ -88,12 +88,13 @@ class ContactController extends Controller
 
 
     private function emailValidate($email){
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-          return false;
-        }
-        return true;
-    }
 
+        echo $email;
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+          return true;
+        }
+        return false;
+    }
     private function validateNumber($phone){
         $re = '/^([0]|[+])(\d{10}|\d{12})$/m';
 

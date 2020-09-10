@@ -113,7 +113,7 @@ class CustomerController extends Controller
 
 
         if(!$this->emailValidate($data['email'])){
-            $failed = "Invalid Email Type";
+            $failed = "Email is invalid";
              return response()
             ->json(compact('failed'));
 
