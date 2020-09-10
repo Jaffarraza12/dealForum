@@ -55,7 +55,9 @@ class ContactController extends Controller
         }
 
 
-      
+
+
+
 
 
 
@@ -85,7 +87,7 @@ class ContactController extends Controller
     }
 
 
-    private emailValidate($email){
+    private function emailValidate($email){
         $mail = test_input(($email);
         if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
           return false;
@@ -93,7 +95,7 @@ class ContactController extends Controller
         return true;
     }
 
-    private validateNumber($phone){
+    private function validateNumber($phone){
         $re = '/^([0]|[+])(\d{10}|\d{12})$/m';
 
         if(preg_match($re, subject)) {
