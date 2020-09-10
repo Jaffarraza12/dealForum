@@ -110,9 +110,7 @@ class CustomerController extends Controller
         $data['fbid'] = 0;
         $data['goid'] = 0;
         
-        print_r($data);
-        
-        echo $data['email'];
+
         if(!$this->emailValidate($data['email'])){
             $failed = "Email is invalid";
              return response()
@@ -211,7 +209,6 @@ class CustomerController extends Controller
 
      private function emailValidate($email){
 
-        echo $email;
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
           return true;
         }
