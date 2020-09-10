@@ -112,6 +112,23 @@ class CustomerController extends Controller
         
 
 
+        if(!$this->emailValidate($data['email'])){
+            $failed = "Invalid Email Type";
+             return response()
+            ->json(compact('failed'));
+
+        }
+
+
+        if(!$this->validateNumber($data['phone'])){
+            $failed = "Invalid Mobile Number";
+             return response()
+            ->json(compact('failed'));
+
+        }
+
+
+
         if($data['name'] == '' || $data['email'] == '' || $data['phone'] == '' || $resp['password'] == ''){
 
             $failed = 'Please fill complete information';
@@ -123,13 +140,15 @@ class CustomerController extends Controller
         }
 
         if( Customer::where('email',$data['email'])->count() > 0){
-            
             $failed = 'Email Already register';
-            
             return response()
             ->json(compact('failed'));
-
         } 
+
+
+
+
+
 
         $user = Customer::create($data);
         $lastInsertedId = $user->id;
@@ -152,6 +171,13 @@ class CustomerController extends Controller
         $data['id'] = $resp['id'];
         $data['phone'] = (!empty($resp['phone'])) ? $resp['phone'] : '';
         $data['password'] = (!empty($resp['password'])) ?  md5($resp['password']) : ''; 
+
+        if(!$this->validateNumber($data['phone'])){
+            $failed = "Invalid Mobile Number";
+             return response()
+            ->json(compact('failed'));
+
+        }
 
         $user = Customer::where('id',$data['id'])->update($data);
         $user = Customer::where('id',$data['id'])->first();
@@ -180,4 +206,23 @@ class CustomerController extends Controller
 
 
      }
+
+
+     private emailValidate($email){
+        $mail = test_input(($email);
+        if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+          return false;
+        }
+        return true;
+    }
+
+    private validateNumber($phone){
+        $re = '/^([0]|[+])(\d{10}|\d{12})$/m';
+
+        if(preg_match($re, subject)) {
+            return true;
+        }
+        return false;
+
+    }
  }

@@ -46,6 +46,19 @@ class ContactController extends Controller
         $data['email'] = $resp['email'];
         $data['message'] = $resp['message'];
         $data['customer'] = $resp['uid'];
+
+        if(!$this->emailValidate($data['email'])){
+            $failed = "Invalid Email Type";
+             return response()
+            ->json(compact('failed'));
+
+        }
+
+
+      
+
+
+
        
 
         $query = Contact::create($data);
@@ -68,6 +81,25 @@ class ContactController extends Controller
     
          return response()
             ->json(compact('success'));
+
+    }
+
+
+    private emailValidate($email){
+        $mail = test_input(($email);
+        if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+          return false;
+        }
+        return true;
+    }
+
+    private validateNumber($phone){
+        $re = '/^([0]|[+])(\d{10}|\d{12})$/m';
+
+        if(preg_match($re, subject)) {
+            return true;
+        }
+        return false;
 
     }
 
