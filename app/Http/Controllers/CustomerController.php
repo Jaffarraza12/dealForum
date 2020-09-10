@@ -216,7 +216,7 @@ class CustomerController extends Controller
     }
 
     private function validateNumber($phone){
-        $re = '/^([0]|[+])(\d{10}|\d{12})$/m';
+        $re = '/^([0]|[+])(\d{9}|\d{10}|\d{12})$/m';
 
         if(preg_match($re,$phone)) {
             return true;
