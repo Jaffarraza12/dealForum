@@ -39,12 +39,12 @@
         <div class="row">
             <div class="col-lg-6">
               <div class="card">
-                 <div class="card-header"><i class="fa-fw fa-user"></i> Customer Detail</div>
+                 <div class="card-header"><i class="nav-icon fas fa-fw fa-user"></i> Customer Detail</div>
                  <div class="card-body">
                   @if($coupon->name !== "")
                     <h2>{{$coupon->name}}</h2>
-                    <h4>{{$coupon->email}}}</h4>
-                    <h4>{{$coupon->phone}}}</h4>
+                    <h4>{{$coupon->email}}</h4>
+                    <h4>{{$coupon->phone}}</h4>
                   @else
                     <p>No Customer Assign to it.</p>
                   
@@ -54,12 +54,12 @@
             </div> 
             <div class="col-lg-6">
                  <div class="card">
-                 <div class="card-header"> <i class="fa-fw fa-percent"></i> Coupon Detail</div>
+                 <div class="card-header"> <i class="nav-icon fas fa-fw fa-percent"></i> Coupon Detail</div>
                  <div class="card-body">
                     <img src="http://deal-forum.com/asset/{{$coupon->image}}" />
-                    <h2><i class="fa-fw fa-building"></i> <{{$coupon->COMPANY}}</h2>
-                    <h4><i class="fa-fw fa-tag"></i> <{{$coupon->DEAL}}</h4>
-                    <h4><i class="fa-fw fa-tag"></i>{{$coupon->discount}}} % OFF</h4>
+                    <h2><i class="nav-icon fas fa-fw fa-building"></i> <{{$coupon->COMPANY}}</h2>
+                    <h4><i class="nav-icon fas fa-fwfa-tag"></i> <{{$coupon->DEAL}}</h4>
+                    <h4><i class="nav-icon fas fa-fw fa-tag"></i>{{$coupon->discount}}} % OFF</h4>
                  </div>
               </div>
             </div> 
