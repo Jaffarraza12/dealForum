@@ -9,13 +9,7 @@
     border-right:none; ;
   }
 </style>
-<div style="margin-bottom: 10px;" class="row">
-    <div class="col-lg-12">
-        <a class="btn btn-success" href="{{ route("coupons.create") }}">
-            New Coupon
-        </a>
-    </div>
-</div>
+
 <div class="card">
     <div class="card-header">
        Coupon Code
@@ -25,11 +19,14 @@
         <form action="/public/validate-coupon" method="POST">
            @csrf 
 
-            <div class="form-control">
-                  <input type="text" name="coupon" value="{{$code}}" />
+            <div class="form-group">
+                  <input class="form-control" type="text" name="coupon" value="{{$code}}" />
 
             </div>
-            <button type="submit" class="btn btn-danger">CHECK</button> 
+
+            <div class="form-group m-auto " style="text-align: center;">
+            <button class="" type="submit" class="btn btn-danger">CHECK</button> 
+          </div>
           
         </form>
 
