@@ -251,4 +251,28 @@ class CouponController extends Controller
     }
     return $randomString;
     }
+
+
+
+    public function ValidateCoupon(Request $request){
+
+        $coupon = '';
+        $code = '';
+        if ($request->isMethod ('post')) { 
+              $code =  $request->coupon;
+              $coupon =  Coupon::select('deals.name as DEAL','deals.image','customer.name','customer.email','customer.phone','coupon.code','companies.name as COMPANY','deals.discount')
+            ->join('deals','deals.id','=','coupon.deal')
+            ->join('companies','deals.company_id','=','companies.id')
+            ->leftjoin('customer','customer.id','=','coupon.customer')
+            ->where('coupon.code',$code)->first();
+        }
+
+
+          return view('coupon.validate',compact('coupon','code'));
+
+
+
+
+
+    }
 }

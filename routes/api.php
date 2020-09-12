@@ -17,6 +17,7 @@ Route::get('chatting/{room}', 'ChatController@get');
 Route::get('chatrooms', 'ChatController@rooms');
 Route::get('sliders', 'Admin\CategoryController@getSliders');
 Route::get('help', 'Admin\CategoryController@getHelp');
+Route::get('validate-coupon', 'Admin\CategoryController@getHelp');
 
 
 Route::post('customer', 'CustomerController@CustomerApi');

@@ -47,7 +47,7 @@ class ContactController extends Controller
         $data['message'] = $resp['message'];
         $data['customer'] = $resp['uid'];
 
-        if(!$this->emailValidate($data['email'])){
+        if($this->emailValidate($data['email'])){
             $failed = "Invalid Email Type";
              return response()
             ->json(compact('failed'));
@@ -94,15 +94,7 @@ class ContactController extends Controller
         }
         return false;
     }
-    private function validateNumber($phone){
-        $re = '/^([0]|[+])(\d{9}|\d{10}|\d{12})$/m';
-
-        if(preg_match($re,$phone)) {  
-            return true;
-        }
-        return false;
-
-    }
+   
 
    
  }
