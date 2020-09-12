@@ -58,7 +58,7 @@
                  <div class="card-body">
                     <img src="http://deal-forum.com/asset/{{$coupon->image}}" width="100" height="auto" />
                     <h2><i class="nav-icon fas fa-fw fa-building"></i> {{$coupon->COMPANY}}</h2>
-                    <h4><i class="nav-icon fas fa-fwfa-tag"></i> {{$coupon->DEAL}}</h4>
+                    <h4><i class="nav-icon fas fa-fw fa-tag"></i> {{$coupon->DEAL}}</h4>
                     <h4><i class="nav-icon fas fa-fw fa-tag"></i>{{$coupon->discount}} % OFF</h4>
                  </div>
               </div>
