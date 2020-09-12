@@ -268,7 +268,7 @@ class CouponController extends Controller
         }
 
 
-          return view('coupon.validate',compact('coupon','code'));
+          return view('coupon.validate-coupon',compact('coupon','code'));
 
 
 
