@@ -41,7 +41,7 @@
               <div class="card">
                  <div class="card-header"><i class="nav-icon fas fa-fw fa-user"></i> Customer Detail</div>
                  <div class="card-body">
-                  @if($coupon->name !== "")
+                  @if(!empty($coupon->name))
                     <h2>{{$coupon->name}}</h2>
                     <h4>{{$coupon->email}}</h4>
                     <h4>{{$coupon->phone}}</h4>
