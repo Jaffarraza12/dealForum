@@ -21,6 +21,20 @@
        Coupon Code
     </div>
 
+    <div class="m-auto w-550">
+        <form action="/public/validate-coupon" method="POST">
+           @csrf 
+
+            <div class="form-control">
+                  <input type="text" name="coupon" value="{{$code}}" />
+
+            </div>
+            <button type="submit" class="btn btn-danger">CHECK</button> 
+          
+        </form>
+
+    </div>
+     @if(isset($coupon))
     <div class="card-body">
         <div class="row">
             <div class="col-lg-6">
@@ -54,6 +68,7 @@
 
 
     </div>
+    @endif
 </div>
 @endsection
 @section('scripts')
