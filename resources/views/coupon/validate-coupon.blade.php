@@ -19,13 +19,13 @@
         <form action="/public/validate-coupon" method="POST">
            @csrf 
 
-            <div class="form-group">
+            <div class="form-group" style="margin-top: 20px !important;">
                   <input class="form-control" type="text" name="coupon" value="{{$code}}" />
 
             </div>
 
             <div class="form-group m-auto " style="text-align: center;">
-            <button class="" type="submit" class="btn btn-danger">CHECK</button> 
+            <button  type="submit" class="btn btn-danger">CHECK</button> 
           </div>
           
         </form>
