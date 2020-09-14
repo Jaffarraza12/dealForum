@@ -55,7 +55,7 @@
                  <div class="card-header"> <i class="nav-icon fas fa-fw fa-percent"></i> Coupon Detail</div>
                  <div class="card-body">
                    @if(!empty($coupon->image))
-                    <img src="http://deal-forum.com/asset/{{$coupon->image}}" width="100" height="auto" />
+                    <img src="https://deal-forum.com/asset/{{$coupon->image}}" width="100" height="auto" />
                    @endif 
                     <h2><i class="nav-icon fas fa-fw fa-building"></i> {{$coupon->COMPANY}}</h2>
                     <h4><i class="nav-icon fas fa-fw fa-tag"></i> {{$coupon->DEAL}}</h4>
