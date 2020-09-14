@@ -33,7 +33,7 @@
     </div>
   
     <div class="card-body">
-        @if(!empty($coupon) && $post)
+        @if(!empty($coupon))
         <div class="row">
             <div class="col-lg-6">
               <div class="card">
@@ -63,7 +63,7 @@
                  </div>
               </div>
             </div> 
-            @else
+            @elseif($post)
               <p>Coupon not valid.</p>
 
             @endif
