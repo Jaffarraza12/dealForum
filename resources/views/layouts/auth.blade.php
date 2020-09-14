@@ -27,9 +27,9 @@
             @yield("content")
         </div>
     </div>
-    <div class="footer">
+    <div class="footer" style="margin:auto;text-align:center;margin-top: 20px;">
         <footer>
-            <div class="color-white">Copyrigth @copy by <a href="https//:appertunity.net">Appertunity</div>
+            <div class="color-white">Copyright @copy by <a href="https//:appertunity.net">Appertunity</div>
         </footer>
     </div>
     @yield('scripts')
