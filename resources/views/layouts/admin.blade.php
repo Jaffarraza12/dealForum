@@ -104,7 +104,10 @@
     </header>
 
     <div class="app-body">
-        @include('partials.menu')
+        @if (Auth::check())
+           @include('partials.menu')
+        @endif
+       
         <main class="main">
 
 
