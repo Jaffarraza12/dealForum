@@ -1,4 +1,8 @@
+@if(Auth::check())
 @extends('layouts.admin')
+@else
+@extends('layouts.public')
+@endif
 @section('content')
 <style>
   .nameCat{

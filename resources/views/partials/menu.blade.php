@@ -83,7 +83,15 @@
                         </li>
                     </ul>
                 </li>
-             @endcan   
+             @endcan 
+              <li class="nav-item">
+                <a href="/public/validate-coupon" class="nav-link {{ request()->is('setting') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-fw fa-angellist">
+
+                    </i>
+                    Validate Coupon
+                </a>    
+            </li>  
              @can('users_manage')
             <li class="nav-item">
                 <a href="{{ route('admin.setting') }}" class="nav-link {{ request()->is('setting') ? 'active' : '' }}">
