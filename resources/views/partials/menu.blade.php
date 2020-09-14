@@ -86,7 +86,7 @@
              @endcan 
               <li class="nav-item">
                 <a href="/public/validate-coupon" class="nav-link {{ request()->is('setting') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-fw fa-angellist">
+                    <i class="nav-icon fas fa-fw fa-check-circle">
 
                     </i>
                     Validate Coupon
