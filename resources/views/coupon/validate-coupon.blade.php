@@ -31,8 +31,9 @@
         </form>
 
     </div>
-     @if(!empty($coupon))
+  
     <div class="card-body">
+        @if(!empty($coupon) && $post)
         <div class="row">
             <div class="col-lg-6">
               <div class="card">
@@ -62,12 +63,16 @@
                  </div>
               </div>
             </div> 
+            @else
+              <p>Coupon not valid.</p>
+
+            @endif
            
         </div>
 
 
     </div>
-    @endif
+    
 </div>
 @endsection
 @section('scripts')

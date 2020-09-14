@@ -258,8 +258,10 @@ class CouponController extends Controller
 
         $coupon = '';
         $code = '';
+        $post = false;
         if ($request->isMethod ('post')) { 
               $code =  $request->coupon;
+              $post = true;
               $coupon =  Coupon::select('deals.name as DEAL','deals.image','customer.name','customer.email','customer.phone','coupon.code','companies.name as COMPANY','deals.discount')
             ->join('deals','deals.id','=','coupon.deal')
             ->join('companies','deals.company_id','=','companies.id')
@@ -267,9 +269,9 @@ class CouponController extends Controller
             ->where('coupon.code',$code)->first();
         }
 
-       
 
-          return view('coupon.validate-coupon',compact('coupon','code'));
+
+          return view('coupon.validate-coupon',compact('coupon','code','post'));
 
 
 
