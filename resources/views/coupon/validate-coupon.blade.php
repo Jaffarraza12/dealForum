@@ -16,7 +16,7 @@
     </div>
 
     <div class="m-auto w-550">
-        <form action="/public/validate-coupon" method="POST">
+        <form action="https://secure.deal-forum.com/public/validate-coupon" method="POST">
            @csrf 
 
             <div class="form-group" style="margin-top: 20px !important;">
