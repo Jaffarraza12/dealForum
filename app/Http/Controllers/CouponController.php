@@ -267,6 +267,9 @@ class CouponController extends Controller
             ->where('coupon.code',$code)->first();
         }
 
+        print_r($coupon);
+        exit;
+
 
           return view('coupon.validate-coupon',compact('coupon','code'));
 
