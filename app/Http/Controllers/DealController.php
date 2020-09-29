@@ -83,6 +83,7 @@ class DealController extends Controller
         $deal->image = $request->image;
         $deal->discount = $request->discount;
         $deal->company_id =  $request->company;
+        $deal->contact =  $request->contact;
         $deal->status = $request->status;
         $deal->consumer = $request->consumer;
         $deal->starting_date = $request->starting_date;
@@ -149,6 +150,8 @@ class DealController extends Controller
         $deal->image = $request->image;
         $deal->discount = $request->discount;
         $deal->company_id =  $request->company;
+        $deal->contact =  $request->contact;
+       
         $deal->status = $request->status;
         $deal->consumer = $request->consumer;
         $deal->starting_date = $request->starting_date;

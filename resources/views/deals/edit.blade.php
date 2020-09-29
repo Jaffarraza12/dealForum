@@ -46,6 +46,19 @@
                
             </div>
 
+
+             <div class="form-group {{ $errors->has('discount') ? 'has-error' : '' }}">
+                <label for="slug">Contact Number*</label>
+                <input type="text" id="contact" name="contact" class="form-control" value="{{ old('contact', isset($deal) ? $deal->contact : '') }}" >
+                @if($errors->has('discount'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('contact') }}
+                    </em>
+                @endif
+               
+            </div>
+
+
            
              <div class="form-group {{ $errors->has('company') ? 'has-error' : '' }}">
                  <label for="company">Company*</label>
