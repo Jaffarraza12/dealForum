@@ -26,8 +26,8 @@ class CustomerController extends Controller
         $data['password'] = '';
         $data['fbid'] = $resp['fbid'];
         $data['goid'] = $resp['goid'];
-
-
+        $data['appleid'] = ($resp['appleid']) ? $resp['appleid'] : '';
+        
         if( Customer::where('email',$data['email'])->count() > 0){
             $type = 'old';
             //login from google
@@ -41,11 +41,8 @@ class CustomerController extends Controller
             }
 
             $user = Customer::where('email',$data['email'])->first();
-
             Customer::whereId($user->id)->update($data);
-            
             $user = Customer::where('email',$data['email'])->first();
-            
             return response()
             ->json(compact('user','type'));
 
