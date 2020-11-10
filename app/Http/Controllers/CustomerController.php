@@ -26,7 +26,7 @@ class CustomerController extends Controller
         $data['password'] = '';
         $data['fbid'] = $resp['fbid'];
         $data['goid'] = $resp['goid'];
-        $data['appleid'] = ($resp['appleid']) ? $resp['appleid'] : '';
+        $data['appleid'] = (isset($resp['appleid'])) ? $resp['appleid'] : '';
         
         if( Customer::where('email',$data['email'])->count() > 0){
             $type = 'old';
