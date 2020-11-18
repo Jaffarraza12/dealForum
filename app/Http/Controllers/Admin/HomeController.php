@@ -34,7 +34,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        echo md5('asdasd');
         $companiesCount = Companies::where('status',0);
         $dealCount = Deal::join('companies', 'deals.company_id', '=', 'companies.id');
         $coupon = Coupon::select('customer.name AS customer',
