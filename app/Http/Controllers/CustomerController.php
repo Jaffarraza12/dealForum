@@ -189,7 +189,7 @@ class CustomerController extends Controller
     {
         $data = file_get_contents('php://input');
         // var_dump($data->appleid);
-        echo $data->appleid;
+        echo $data;
 
         exit;
         $customer = Customer::where('id', $id)->get();
