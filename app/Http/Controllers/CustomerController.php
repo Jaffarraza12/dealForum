@@ -188,6 +188,7 @@ class CustomerController extends Controller
     public function getCustomerByAppleId(Request $request)
     {
         echo $request->appleid;
+        print_r($_POST);
         $resp = json_decode($request->getContent(), true);
         print_r($resp);
         echo $resp['appleid'];
