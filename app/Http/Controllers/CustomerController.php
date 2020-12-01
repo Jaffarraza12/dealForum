@@ -189,7 +189,7 @@ class CustomerController extends Controller
     {
         $post = file_get_contents("php://input");
 
-        var_dump(json_decode(json_encode($post)));
+        print_r(json_decode(json_encode($post)));
 
 
 
