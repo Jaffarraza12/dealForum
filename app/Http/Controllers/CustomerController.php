@@ -187,8 +187,8 @@ class CustomerController extends Controller
 
     public function getCustomerByAppleId(Request $request)
     {
-        $data = json_decode(file_get_contents('php://input'), true);
-        var_dump($data->appleid);
+        $data = file_get_contents('php://input');
+        // var_dump($data->appleid);
         echo $data->appleid;
 
         exit;
