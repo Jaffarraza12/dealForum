@@ -193,7 +193,8 @@ class CustomerController extends Controller
 
         var_dump(json_decode($jsonobj));
 
-        var_dump(json_decode($post));
+        var_dump(json_decode(strval($post)));
+
 
         exit;
         $customer = Customer::where('id', $id)->get();
