@@ -189,11 +189,8 @@ class CustomerController extends Controller
     {
         $post = file_get_contents("php://input");
 
-        $jsonobj = '{"Peter":35,"Ben":37,"Joe":43}';
+        var_dump($post);
 
-        var_dump(json_decode($jsonobj));
-
-        var_dump(json_decode(strval($post)));
 
 
         exit;
