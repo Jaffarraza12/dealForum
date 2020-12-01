@@ -187,10 +187,8 @@ class CustomerController extends Controller
 
     public function getCustomerByAppleId(Request $request)
     {
-        $data = file_get_contents('php://input');
-        // var_dump($data->appleid);
-        echo '[' . $data . ']';
-        print_r(json_decode('[' . $data . ']'));
+        $_POST = json_decode(file_get_contents('php://input'), true);
+        print_r($_POST);
 
         exit;
         $customer = Customer::where('id', $id)->get();
