@@ -17,6 +17,7 @@ Route::get('chatrooms', 'ChatController@rooms');
 Route::get('sliders', 'Admin\CategoryController@getSliders');
 Route::get('help', 'Admin\CategoryController@getHelp');
 Route::get('validate-coupon', 'Admin\CategoryController@getHelp');
+Route::get('customer-apple-id/{id}', 'CustomerController@getCustomerByAppleId');
 
 
 Route::post('customer', 'CustomerController@CustomerApi');
@@ -30,4 +31,3 @@ Route::post('coupon-create', 'CouponController@api');
 Route::post('chatmessage/{room}', 'ChatController@apiPost');
 Route::post('chatuser', 'ChatController@chatuser');
 Route::post('customer-status', 'ChatController@changeStatus');
-Route::post('customer-apple-id', 'CustomerController@getCustomerByAppleId');
