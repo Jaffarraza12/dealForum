@@ -31,3 +31,4 @@ Route::post('coupon-create', 'CouponController@api');
 Route::post('chatmessage/{room}', 'ChatController@apiPost');
 Route::post('chatuser', 'ChatController@chatuser');
 Route::post('customer-status', 'ChatController@changeStatus');
+Route::post('report-user', 'ChatController@reportUser');
