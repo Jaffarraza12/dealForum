@@ -60,12 +60,6 @@ class ChatController extends Controller
 
             );
         }
-
-
-
-
-
-
         return response()
             ->json(compact('data'));
     }
@@ -108,9 +102,7 @@ class ChatController extends Controller
     public function apiPost(Request $request, $room)
     {
         $resp = json_decode($request->getContent(), true);
-
         $data = array();
-
         $chat = new Chat;
         $chat->chatid = $resp['_id'];
         $chat->customer = $resp['user']['_id'];
@@ -118,23 +110,21 @@ class ChatController extends Controller
         $chat->room = $room;
         $chat->chattimeat = $resp['createdAt'];
         $chat->save();
-
-
-
-        //echo $chat = Chat::create($data);
-
-
     }
 
 
-    public function reportUser(Request $request, $room)
+    public function reportUser(Request $request)
     {
         $resp = json_decode($request->getContent(), true);
         $data = array();
-        $check_report = ReportUser::where('user_for', $resp['_id'])->where('user_by', $resp['user_id'])->first();
+        $check_report = ReportUser::where('user_for', $resp['_id'])
+            ->where('user_by', $resp['user_id'])
+            ->where('room', $resp['room'])
+            ->first();
         if ($check_report) {
             $status = 'error';
-            return response()->json(compact('success'));
+            $message = 'You have already report this user before .This suppose to mean we have already take certain measure to prevent this heppenning.';
+            return response()->json(compact('status', 'message'));
         }
         $report_user = new ReportUser;
         $report_user->user_for = $resp['_id'];
@@ -143,7 +133,8 @@ class ChatController extends Controller
         $report_user->message = $resp['message'];;
         if ($report_user->save()) {
             $status = 'pass';
-            return response()->json(compact('success'));
+            $message = 'Thank you for report this . We will do further investigate and get back to you soon.';
+            return response()->json(compact('status', 'message'));
         }
     }
 
